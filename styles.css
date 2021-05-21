@@ -1,0 +1,65 @@
+/* wip */
+
+#wip {
+	height: 100vh;
+	width: 100%;
+	background-color: #1f0203;
+	color: #d8ebe4;
+}
+
+#wip-image {
+	width: 20%;
+}
+
+/* INDEX */
+
+html,
+body {
+	box-sizing: border-box;
+	padding: 0px;
+	margin: 0px;
+	background-color: whitesmoke;
+}
+
+nav {
+	background-color: #7e2f31;
+}
+
+.wrapper {
+	margin: 0px;
+	padding: 0px;
+	height: 100vh;
+	width: 100vw;
+}
+
+#navbar-logo {
+	width: 100px;
+}
+
+#login-form-container,
+#timein-form-container {
+	height: 50%;
+}
+
+#login-form,
+#timein-form {
+	width: 500px;
+	box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+		0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+		0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+		0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+.btn {
+	background-color: #7e2f31;
+	color: white;
+}
+
+.active {
+	border-bottom: 1px solid whitesmoke;
+}
+
+#error {
+	text-align: center;
+	color: red;
+}
