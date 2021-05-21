@@ -29,7 +29,7 @@
                 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
-                        <?php require_once('src/php/include/navlinks.php'); ?>
+                        <?php require_once(INCLUDE_PATH.DS.'navlinks.php'); ?>
                     </ul>
                 </div>
             </nav>

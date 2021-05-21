@@ -29,7 +29,7 @@
                 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
-                        <?php require_once('src/php/include/navlinks.php'); ?>
+                        <?php require_once(INCLUDE_PATH.DS.'navlinks.php'); ?>
                     </ul>
                 </div>
             </nav>
@@ -166,13 +166,13 @@
                     
                     <div class="modal-header">
                         <h5 class="modal-title" id="create-new-career-title">Create New Career Opportunity</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="resetErrors()">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
                         <div>
-                            <form>
+                            <form id="add-career-form" action="src/php/functions/homepage/addcareer.php" method="POST" onsubmit="return validateForm()" onreset="resetErrors()">
 
                                 <div class="p-2">
                                     <div class="row d-flex align-items-center">
@@ -181,6 +181,9 @@
                                         </div>
                                         <div class="col">
                                             <input type="text" class="form-control border-secondary" id="position">
+                                            <div class="error-message">
+                                                <small id="position-error-message" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -192,6 +195,9 @@
                                         </div>
                                         <div class="col">
                                             <input type="text" class="form-control border-secondary" id="office">
+                                            <div class="error-message">
+                                                <small id="office-error-message" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -203,6 +209,9 @@
                                         </div>
                                         <div class="col">
                                             <input type="text" class="form-control border-secondary" id="campus">
+                                            <div class="error-message">
+                                                <small id="campus-error-message" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -214,6 +223,9 @@
                                         </div>
                                         <div class="col">
                                             <input type="text" class="form-control border-secondary" id="vacancies">
+                                            <div class="error-message">
+                                                <small id="vacancies-error-message" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -225,6 +237,9 @@
                                         </div>
                                         <div class="col">
                                             <input type="text" class="form-control border-secondary" id="salary-grade">
+                                            <div class="error-message">
+                                                <small id="salarygrade-error-message" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -236,6 +251,9 @@
                                         </div>
                                         <div class="col">
                                             <input type="text" class="form-control border-secondary" id="item-number">
+                                            <div class="error-message">
+                                                <small id="itemnumber-error-message" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -247,6 +265,9 @@
                                         </div>
                                         <div class="col">
                                             <input type="text" class="form-control border-secondary" id="qualification">
+                                            <div class="error-message">
+                                                <small id="qualification-error-message" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -257,7 +278,10 @@
                                             <label for="experience">Experience:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="vacancies">
+                                            <input type="text" class="form-control border-secondary" id="experience">
+                                            <div class="error-message">
+                                                <small id="experience-error-message" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -269,6 +293,9 @@
                                         </div>
                                         <div class="col">
                                             <input type="text" class="form-control border-secondary" id="training">
+                                            <div class="error-message">
+                                                <small id="training-error-message" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -280,6 +307,9 @@
                                         </div>
                                         <div class="col">
                                             <input type="text" class="form-control border-secondary" id="eligibility">
+                                            <div class="error-message">
+                                                <small id="eligibility-error-message" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -291,6 +321,9 @@
                                         </div>
                                         <div class="col">
                                             <input type="date" class="form-control border-secondary" id="deadline">
+                                            <div class="error-message">
+                                                <small id="deadline-error-message" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -301,14 +334,17 @@
                                             <label for="requirement">List of Requirements:</label>
                                         </div>
                                         <div class="col">
-                                            <textarea class="form-control" id="requirement" rows="3"></textarea>
+                                            <textarea class="form-control" id="requirements" rows="3"></textarea>
+                                            <div class="error-message">
+                                                <small id="requirements-error-message" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
         
                                 <div class="add-emp-buttons text-center w-100 pt-5">
                                     <div class="modal-footer d-flex justify-content-around">
-                                        <button type="reset" class="btn">Clear</button>
+                                        <button type="reset" class="btn" onclick="clear()">Clear</button>
                                         <button type="submit" class="btn">Submit</button>
                                     </div>
                                 </div>
@@ -322,7 +358,7 @@
 
     </div>
 
-
+    <script src="js/index.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

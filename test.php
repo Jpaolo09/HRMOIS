@@ -1,3 +1,3 @@
 <?php
-    echo $_SERVER['DOCUMENT_ROOT'];
+    require_once(INCLUDE_PATH.DS.'navlinks.php');
 ?>
