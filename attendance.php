@@ -60,6 +60,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!--MODIFY HERE-->
                     <tr>
                         <td>Dr. Jesus Rodrigo F. Torres</td>
                         <td id="date"></td>

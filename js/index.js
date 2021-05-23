@@ -54,12 +54,22 @@ function validateForm()
         setErrorFor("vacancies", "Vacancies cannot be blank");
         error_count++;
     }
+    else if(isNaN(vacancies.value))
+    {
+        setErrorFor("vacancies", "Please enter a valid number");
+        error_count++;
+    }
 
 
     //validate salary grade
     if(salary_grade.value == "")
     {
         setErrorFor("salarygrade", "Salary grade cannot be blank");
+        error_count++;
+    }
+    else if(isNaN(salary_grade.value))
+    {
+        setErrorFor("salarygrade", "Please enter a valid number");
         error_count++;
     }
 

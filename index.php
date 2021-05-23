@@ -51,6 +51,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!--MODIFY HERE-->
                     <tr>
                         <td>Administrative Aide VI - Clerk III</td>
                         <td>6</td>
@@ -58,7 +59,7 @@
                         <td>Medical Clinic/Manila</td>
                         <td><button type="button" class="btn" data-toggle="modal" data-target="#career1">
                             View Details
-                          </button></td>
+                        </button></td>
                     </tr>
                 </tbody>
             </table>

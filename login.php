@@ -49,7 +49,7 @@
                     </div>
                     <div class="d-flex justify-content-end">
                         <div class="forget">
-                            <a href="wip.html"><i>Forget password?</i></a>
+                            <a href="wip.html"><i>Forgot password?</i></a>
                         </div>
                     </div> <br>
                     <div class="d-flex justify-content-around">
