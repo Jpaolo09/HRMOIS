@@ -6,7 +6,7 @@
 
     class User{
 
-        //function for user authentication(loggin in)
+        //function for user authentication(logging in)
         static function AuthenticateUser($username = "", $password = ""){
             global $conn;
             $sql = "SELECT * FROM users WHERE USERNAME = '$username' AND PASSWORD = '$password' LIMIT 1";

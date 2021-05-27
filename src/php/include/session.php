@@ -1,5 +1,6 @@
 <?php
     //ABOUT: handles session and manages page access restrictions
+    
     session_start();
 
     //if the user is not logged in restrict access to webpages other than homepage and login

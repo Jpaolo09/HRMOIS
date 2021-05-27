@@ -1,3 +1,5 @@
+//ABOUT: contains function(s) for the login page
+
 const username = document.getElementById("username");
 const password = document.getElementById("password");
 

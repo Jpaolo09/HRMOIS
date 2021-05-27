@@ -11,6 +11,8 @@
     <title>TUP HRMOIS | Employees</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
     <link rel="icon" href="./images/logo.svg">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -40,16 +42,7 @@
         </div>
 
         <div class="container-fluid mt-5 px-5">
-            <table class="table table-striped">
-                <div class="container-fluid">
-                    <div class="table-wrapper mb-3">
-                        <div class="d-flex">
-                            <div class="p-2">Show</div> <input type="text" class="form-control col-1 text-center" value="5">
-                            <div class="p-2">Entries</div>
-                            <div class="ml-auto p-2">Search</div> <input type="text" class="form-control col-2">
-                          </div>
-                    </div>
-                </div>
+            <table id="employee-table" class="table table-striped">
                 <thead>
                     <tr>
                         <th scope="col">NAME</th>
@@ -77,35 +70,7 @@
                 </tbody>
                 
             </table>
-            <div class="container-fluid">
-                <div class="table-wrapper">
-                    <div class="row">
-                        <div class="col-sm-12 col-md-5">
-                            <div class="dataTables_info" id="example_info" role="status" aria-live="polite">Showing 1 to 5 of 30 entries</div>
-                        </div>
-                        <div class="col-sm-12 col-md-7">
-                            <div class="dataTables_paginate paging_simple_numbers" id="example_paginate">
-                                <ul class="pagination justify-content-end" style="margin:20px 0">
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                      </li>
-                                      <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                      <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                      <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Next">
-                                          <span aria-hidden="true">&raquo;</span>
-                                        </a>
-                                      </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
+
             <div>
                 <button type="button" class="btn" data-toggle="modal" data-target="#create-new-employee">
                     <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;<span>Create New</span> 
@@ -569,6 +534,14 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+    <script src="js/date.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#employee-table').DataTable();
+        } );
+    </script>
 </body>
 </html>

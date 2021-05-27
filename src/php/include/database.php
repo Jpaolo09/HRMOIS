@@ -1,5 +1,6 @@
 <?php
     //ABOUT: manage database connectivity and common database functions
+    
     require_once('config.php');
 
     //open database connection

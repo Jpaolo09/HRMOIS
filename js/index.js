@@ -59,6 +59,11 @@ function validateForm()
         setErrorFor("vacancies", "Please enter a valid number");
         error_count++;
     }
+    else if(salary_grade.value < 0)
+    {
+        setErrorFor("vacancies", "Please enter a valid number");
+        error_count++;
+    }
 
 
     //validate salary grade
@@ -68,6 +73,11 @@ function validateForm()
         error_count++;
     }
     else if(isNaN(salary_grade.value))
+    {
+        setErrorFor("salarygrade", "Please enter a valid number");
+        error_count++;
+    }
+    else if(salary_grade.value < 0)
     {
         setErrorFor("salarygrade", "Please enter a valid number");
         error_count++;

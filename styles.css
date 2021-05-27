@@ -55,6 +55,10 @@ nav {
 	color: white;
 }
 
+.btn:hover{
+	color: white;
+}
+
 .active {
 	border-bottom: 1px solid whitesmoke;
 }
