@@ -5,7 +5,7 @@
     defined('SERVER_NAME') ? null : define("SERVER_NAME", "localhost");
     defined('USERNAME') ? null : define("USERNAME", "root");
     defined('PASSWORD') ? null : define("PASSWORD", "");
-    defined('DATABASE') ? null : define("DATABASE", "hrmois_db");
+    defined('DATABASE') ? null : define("DATABASE", "hrmios_db");
 
     //PATHS
     defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);  //define directory separator (\ for windows, / for unix)

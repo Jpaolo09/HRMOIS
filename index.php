@@ -181,7 +181,7 @@
                                             <label for="position">Position:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="position">
+                                            <input type="text" class="form-control border-secondary" id="position" name="position">
                                             <div class="error-message">
                                                 <small id="position-error-message" class="error-container" style="color:red;"></small>
                                             </div>
@@ -195,7 +195,7 @@
                                             <label for="office">Office:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="office">
+                                            <input type="text" class="form-control border-secondary" id="office" name="office">
                                             <div class="error-message">
                                                 <small id="office-error-message" class="error-container" style="color:red;"></small>
                                             </div>
@@ -209,7 +209,7 @@
                                             <label for="campus">Campus:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="campus">
+                                            <input type="text" class="form-control border-secondary" id="campus" name="campus">
                                             <div class="error-message">
                                                 <small id="campus-error-message" class="error-container" style="color:red;"></small>
                                             </div>
@@ -223,7 +223,7 @@
                                             <label for="vacancies">No. of Vacancies:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="vacancies">
+                                            <input type="text" class="form-control border-secondary" id="vacancies" name="vacancies">
                                             <div class="error-message">
                                                 <small id="vacancies-error-message" class="error-container" style="color:red;"></small>
                                             </div>
@@ -237,7 +237,7 @@
                                             <label for="salary-grade">Salary Grade:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="salary-grade">
+                                            <input type="text" class="form-control border-secondary" id="salary-grade" name="salarygrade">
                                             <div class="error-message">
                                                 <small id="salarygrade-error-message" class="error-container" style="color:red;"></small>
                                             </div>
@@ -251,7 +251,7 @@
                                             <label for="item-number">item Number:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="item-number">
+                                            <input type="text" class="form-control border-secondary" id="item-number" name="itemnumber">
                                             <div class="error-message">
                                                 <small id="itemnumber-error-message" class="error-container" style="color:red;"></small>
                                             </div>
@@ -265,7 +265,7 @@
                                             <label for="qualification">Qualification:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="qualification">
+                                            <input type="text" class="form-control border-secondary" id="qualification" name="qualification">
                                             <div class="error-message">
                                                 <small id="qualification-error-message" class="error-container" style="color:red;"></small>
                                             </div>
@@ -279,7 +279,7 @@
                                             <label for="experience">Experience:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="experience">
+                                            <input type="text" class="form-control border-secondary" id="experience" name="experience">
                                             <div class="error-message">
                                                 <small id="experience-error-message" class="error-container" style="color:red;"></small>
                                             </div>
@@ -293,7 +293,7 @@
                                             <label for="training">Training:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="training">
+                                            <input type="text" class="form-control border-secondary" id="training" name="training">
                                             <div class="error-message">
                                                 <small id="training-error-message" class="error-container" style="color:red;"></small>
                                             </div>
@@ -307,7 +307,7 @@
                                             <label for="eligibility">Eligibility:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="eligibility">
+                                            <input type="text" class="form-control border-secondary" id="eligibility" name="eligibility">
                                             <div class="error-message">
                                                 <small id="eligibility-error-message" class="error-container" style="color:red;"></small>
                                             </div>
@@ -321,7 +321,7 @@
                                             <label for="deadlline">Deadline:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="date" class="form-control border-secondary" id="deadline">
+                                            <input type="date" class="form-control border-secondary" id="deadline" name="deadline">
                                             <div class="error-message">
                                                 <small id="deadline-error-message" class="error-container" style="color:red;"></small>
                                             </div>
@@ -335,7 +335,7 @@
                                             <label for="requirement">List of Requirements:</label>
                                         </div>
                                         <div class="col">
-                                            <textarea class="form-control" id="requirements" rows="3"></textarea>
+                                            <textarea class="form-control" id="requirements" rows="3" name="requirements"></textarea>
                                             <div class="error-message">
                                                 <small id="requirements-error-message" class="error-container" style="color:red;"></small>
                                             </div>
