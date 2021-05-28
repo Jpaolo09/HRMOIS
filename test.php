@@ -4,5 +4,5 @@
     require_once(INCLUDE_PATH.DS.'navlinks.php');
     require_once(INCLUDE_PATH.DS.'functions.php');
 
-    echo curr_page();
+    echo validateDate('2021-05-28');
 ?>

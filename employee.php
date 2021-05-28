@@ -67,8 +67,7 @@
                             <button type="button" class="btn" data-toggle="modal" data-target="#employee1-pdf">View Details</button>
                         </td>
                     </tr>
-                </tbody>
-                
+                </tbody> 
             </table>
 
             <div>
