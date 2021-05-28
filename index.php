@@ -173,7 +173,7 @@
                     </div>
                     <div class="modal-body">
                         <div>
-                            <form id="add-career-form" action="src/php/functions/homepage/addcareer.php" method="POST" onsubmit="return validateForm()" onreset="resetErrors()">
+                            <form id="add-career-form" action="src/php/pages/homepage/addcareer.php" method="POST" onsubmit="return validateForm()" onreset="resetErrors()">
 
                                 <div class="p-2">
                                     <div class="row d-flex align-items-center">

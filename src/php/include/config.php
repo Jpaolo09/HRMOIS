@@ -8,8 +8,7 @@
     defined('DATABASE') ? null : define("DATABASE", "hrmois_db");
 
     //PATHS
-    //define directory separator (\ for windows, / for unix)
-    defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);
+    defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);  //define directory separator (\ for windows, / for unix)
     defined('SITE_ROOT') ? null : define('SITE_ROOT', $_SERVER["DOCUMENT_ROOT"].DS.'HRMOIS');
     defined('INCLUDE_PATH') ? null : define('INCLUDE_PATH', SITE_ROOT.DS.'src'.DS.'php'.DS.'include' );
     defined('FUNCTIONS_PATH') ? null : define('FUNCTIONS_PATH', SITE_ROOT.DS.'src'.DS.'php'.DS.'functions');
