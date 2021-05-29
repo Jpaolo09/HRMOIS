@@ -322,7 +322,7 @@
                     </div>
                     <div class="modal-body">
                         <div>
-                            <form>
+                            <form id="add-employee-form" method="POST" onsubmit="return validateForm()" onreset="resetErrors()">
 
                                 <div class="p-2">
                                     <div class="row d-flex align-items-center">
@@ -330,7 +330,10 @@
                                             <label for="name">Name:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="name">
+                                            <input type="text" class="form-control border-secondary" id="new-name">
+                                            <div class="error-message">
+                                                <small id="new-name-error-message" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -341,7 +344,10 @@
                                             <label for="Address">Address:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="address">
+                                            <input type="text" class="form-control border-secondary" id="new-address">
+                                            <div class="error-message">
+                                                <small id="new-address-error-message" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -353,10 +359,10 @@
                                         </div>
                                         <div class="col d-flex">
                                             <label class="radio-inline pr-5">
-                                                <input type="radio" name="optradio" checked> Female
+                                                <input type="radio" name="new-optradio" checked> Female
                                             </label>
                                             <label class="radio-inline pl-5">
-                                                <input type="radio" name="optradio"> Male
+                                                <input type="radio" name="new-optradio"> Male
                                             </label>
                                         </div>
                                     </div>
@@ -368,7 +374,10 @@
                                             <label for="date-of-birth">Date of Birth:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="date" class="form-control border-secondary" id="date-of-birth">
+                                            <input type="date" class="form-control border-secondary" id="new-dob">
+                                            <div class="error-message">
+                                                <small id="new-dob-error-message" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -379,7 +388,10 @@
                                             <label for="place-of-birth">Place of Birth:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="place-of-birth">
+                                            <input type="text" class="form-control border-secondary" id="new-pob">
+                                            <div class="error-message">
+                                                <small id="new-pob-error-message" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -390,7 +402,10 @@
                                             <label for="telephone">Telephone:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="telephone">
+                                            <input type="text" class="form-control border-secondary" id="new-telephone">
+                                            <div class="error-message">
+                                                <small id="new-telephone-error-message" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -401,7 +416,7 @@
                                             <label for="civil-status">Civil Status:</label>
                                         </div>
                                         <div class="col">
-                                            <select class="form-control border-secondary" id="civil-status">
+                                            <select class="form-control border-secondary" id="new-civil-status">
                                                 <option>Single</option>
                                                 <option>Married</option>
                                                 <option>Widowed</option>
@@ -417,7 +432,10 @@
                                             <label for="designation">Designation:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="designation">
+                                            <input type="text" class="form-control border-secondary" id="new-designation">
+                                            <div class="error-message">
+                                                <small id="new-designation-error-message" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -428,7 +446,7 @@
                                             <label for="branch">Branch:</label>
                                         </div>
                                         <div class="col">
-                                            <select class="form-control border-secondary" id="branch">
+                                            <select class="form-control border-secondary" id="new-branch">
                                                 <option>Manila</option>
                                                 <option>Cavite</option>
                                                 <option>Visayas</option>
@@ -444,7 +462,7 @@
                                             <label for="office">Office:</label>
                                         </div>
                                         <div class="col">
-                                            <select class="form-control border-secondary" id="office">
+                                            <select class="form-control border-secondary" id="new-office">
                                                 <option>None</option>
                                                 <option>Board of Regents</option>
                                                 <option>Office of the President</option>
@@ -464,6 +482,9 @@
                                                 <option>Industrial Relations and Job Placement Office</option>
                                                 <option>University Information Technology Center</option>
                                             </select>
+                                            <div class="error-message">
+                                                <small id="new-office-error-message" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -474,7 +495,7 @@
                                             <label for="college">College:</label>
                                         </div>
                                         <div class="col">
-                                            <select class="form-control border-secondary" id="college">
+                                            <select class="form-control border-secondary" id="new-college">
                                                 <option>None</option>
                                                 <option>College of Science</option>
                                                 <option>College of Architecture and Fine Arts</option>
@@ -483,6 +504,9 @@
                                                 <option>College of Industrial Education</option>
                                                 <option>College of Liberal Arts</option>
                                             </select>
+                                            <div class="error-message">
+                                                <small id="new-college-error-message" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -493,7 +517,7 @@
                                             <label for="work-status">Work Status:</label>
                                         </div>
                                         <div class="col">
-                                            <select class="form-control border-secondary" id="work-status">
+                                            <select class="form-control border-secondary" id="new-workstatus">
                                                 <option>Regular</option>
                                                 <option>Part-Time</option>
                                                 <option>Suspended</option>
@@ -509,14 +533,17 @@
                                             <label for="hired-date">Hired Date:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="date" class="form-control border-secondary" id="hired-date">
+                                            <input type="date" class="form-control border-secondary" id="new-hireddate">
+                                            <div class="error-message">
+                                                <small id="new-hireddate-error-message" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
         
                                 <div class="add-emp-buttons text-center w-100 pt-5">
                                     <div class="modal-footer d-flex justify-content-around">
-                                        <button type="reset" class="btn">Clear</button>
+                                        <button type="reset" class="btn" onclick="clear('add-employee-form')">Clear</button>
                                         <button type="submit" class="btn">Submit</button>
                                     </div>
                                 </div>
@@ -537,6 +564,7 @@
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
     <script src="js/date.js"></script>
+    <script src="js/employee.js"></script>
     <script>
         $(document).ready(function() {
             $('#employee-table').DataTable();

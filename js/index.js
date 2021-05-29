@@ -31,7 +31,6 @@ function validateForm()
         error_count++;
     }
 
-
     //validate office
     if(office.value == "")
     {
@@ -39,14 +38,12 @@ function validateForm()
         error_count++;
     }
 
-
     //validate campus
     if(campus.value == "")
     {
         setErrorFor("campus", "Campus cannot be blank");
         error_count++;
     }
-
 
     //validate vacancies
     if(vacancies.value == "")
@@ -65,7 +62,6 @@ function validateForm()
         error_count++;
     }
 
-
     //validate salary grade
     if(salary_grade.value == "")
     {
@@ -83,14 +79,12 @@ function validateForm()
         error_count++;
     }
 
-
     //validate item number
     if(item_number.value == "")
     {
         setErrorFor("itemnumber", "Item number cannot be blank");
         error_count++;
     }
-
 
     //validate qualification
     if(qualification.value == "")
@@ -99,14 +93,12 @@ function validateForm()
         error_count++;
     }
 
-
     //validate experience
     if(experience.value == "")
     {
         setErrorFor("experience", "Experience cannot be blank");
         error_count++;
     }
-
 
     //validate training
     if(training.value == "")
@@ -115,7 +107,6 @@ function validateForm()
         error_count++;
     }
 
-
     //validate eligibility
     if(eligibility.value == "")
     {
@@ -123,14 +114,12 @@ function validateForm()
         error_count++;
     }
 
-
     //validate deadline
     if(deadline.value == "")
     {
-        setErrorFor("deadline", "Deadline cannot be blank");
+        setErrorFor("deadline", "Please select a date");
         error_count++;
     }
-
 
     //validate requirements
     if(requirements.value == "")
@@ -139,7 +128,14 @@ function validateForm()
         error_count++;
     }
 
-    return error_count < 1;
+    if(error_count < 1)
+    {
+        return confirm("Do you really want to save the following data?");
+    }
+    else
+    {
+        return false;
+    }
 }
 
 //function used to set error messages
