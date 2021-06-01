@@ -316,13 +316,13 @@
                     
                     <div class="modal-header">
                         <h5 class="modal-title" id="create-new-employee-title">Create New Employee</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="resetErrors()">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
                         <div>
-                            <form id="add-employee-form" method="POST" onsubmit="return validateForm()" onreset="resetErrors()">
+                            <form id="add-employee-form" method="POST" onsubmit="return validateNewForm()" onreset="resetErrors()">
 
                                 <div class="p-2">
                                     <div class="row d-flex align-items-center">
@@ -543,7 +543,7 @@
         
                                 <div class="add-emp-buttons text-center w-100 pt-5">
                                     <div class="modal-footer d-flex justify-content-around">
-                                        <button type="reset" class="btn" onclick="clear('add-employee-form')">Clear</button>
+                                        <button type="reset" class="btn">Clear</button>
                                         <button type="submit" class="btn">Submit</button>
                                     </div>
                                 </div>

@@ -15,7 +15,7 @@ var error_containers = document.getElementsByClassName("error-container");
 var letters = /^[A-Za-z]+$/;
 
 //function to validate the form for adding career
-function validateForm()
+function validateNewForm()
 {
     var error_count = 0;
 
@@ -100,6 +100,7 @@ function validateForm()
     }
 }
 
+
 //function used to set error messages
 function setErrorFor(id, msg)
 {
@@ -114,11 +115,4 @@ function resetErrors()
     {
         error_containers[i].innerHTML = "";
     }
-}
-
-
-//functionto reset the form
-function clear(form)
-{
-    document.getElementById(form).reset();
 }

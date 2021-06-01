@@ -53,7 +53,7 @@
                         </div>
                     </div> <br>
                     <div class="d-flex justify-content-around">
-                        <button type="reset" onclick="clear()" id="login-reset-button" class="btn">CLEAR</button>
+                        <button type="reset" id="login-reset-button" class="btn">CLEAR</button>
                         <!-- change this to type=submit -->
                         <button type="submit" id="login-submit-button" name="btnLogin" class="btn">LOGIN</button>
                     </div>

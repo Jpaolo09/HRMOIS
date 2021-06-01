@@ -138,6 +138,7 @@ function validateForm()
     }
 }
 
+
 //function used to set error messages
 function setErrorFor(id, msg)
 {
@@ -152,11 +153,4 @@ function resetErrors()
     {
         error_containers[i].innerHTML = "";
     }
-}
-
-
-//functionto reset the form
-function clear()
-{
-    document.getElementById("add-career-form").reset();
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2021 at 06:26 PM
+-- Generation Time: May 22, 2021 at 02:07 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -20,8 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `hrmois_db`
 --
-CREATE DATABASE IF NOT EXISTS hrmois_db;
-USE hrmois_db;
+CREATE DATABASE IF NOT EXISTS hrmios_db;
+USE hrmios_db;
 
 -- --------------------------------------------------------
 
@@ -187,15 +187,17 @@ CREATE TABLE `position` (
   `QUALIFICATION` varchar(100) NOT NULL,
   `EXPERIENCE` varchar(100) NOT NULL DEFAULT 'None Required',
   `TRAINING` varchar(100) NOT NULL DEFAULT 'None Required',
-  `ELIGIBILITY` varchar(100) NOT NULL DEFAULT 'None Required'
+  `ELIGIBILITY` varchar(100) NOT NULL DEFAULT 'None Required',
+  `DEADLINE` date NOT NULL DEFAULT current_timestamp(),
+  `REQ` text NOT NULL DEFAULT 'None Required'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `position`
 --
 
-INSERT INTO `position` (`POS_ID`, `POSITION`, `OFFICE_ID`, `CAMPUS_ID`, `NUM_OF_VACANCIES`, `SALARY_GRADE`, `QUALIFICATION`, `EXPERIENCE`, `TRAINING`, `ELIGIBILITY`) VALUES
-(1, 'Administrative Aide VI - Clerk III', 15, 1, 1, 6, 'Completion of two years in college.', 'None Required', 'None Required', 'Career Service Subprofessional');
+INSERT INTO `position` (`POS_ID`, `POSITION`, `OFFICE_ID`, `CAMPUS_ID`, `NUM_OF_VACANCIES`, `SALARY_GRADE`, `QUALIFICATION`, `EXPERIENCE`, `TRAINING`, `ELIGIBILITY`, `DEADLINE`, `REQ`) VALUES
+(1, 'Administrative Aide VI - Clerk III', 15, 1, 1, 6, 'Completion of two years in college.', 'None Required', 'None Required', 'Career Service Subprofessional', '2021-05-22', '');
 
 -- --------------------------------------------------------
 

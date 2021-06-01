@@ -345,7 +345,7 @@
         
                                 <div class="add-emp-buttons text-center w-100 pt-5">
                                     <div class="modal-footer d-flex justify-content-around">
-                                        <button type="reset" class="btn" onclick="clear()">Clear</button>
+                                        <button type="reset" class="btn">Clear</button>
                                         <button type="submit" class="btn">Submit</button>
                                     </div>
                                 </div>
