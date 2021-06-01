@@ -7,5 +7,5 @@
     //unset all session variables, destroy the session, then redirect to homepage
     session_unset();
     session_destroy();
-    die(header('location: ../../../index.php'));
+    die(header('location: ../../../index'));
 ?>

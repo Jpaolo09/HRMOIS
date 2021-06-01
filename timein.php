@@ -18,7 +18,7 @@
     <div class="container-fluid wrapper">
         <div class="container-fluid p-0" id="login-content">
             <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="index.php"><img src="./images/logo.svg" alt="" id="navbar-logo"></a>
+                <a class="navbar-brand" href="index"><img src="./images/logo.svg" alt="" id="navbar-logo"></a>
                 <div class="d-xl-block d-none text-light">
                     <h1>TECHNOLOGICAL UNIVERSITY OF THE PHILIPPINES</h1>
                     <small>Human Resources Management Office Information System</small>
