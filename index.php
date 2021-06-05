@@ -195,7 +195,26 @@
                                             <label for="office">Office:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="office" name="office">
+                                            <select class="form-control border-secondary" id="office">
+                                                <option>None</option>
+                                                <option>Board of Regents</option>
+                                                <option>Office of the President</option>
+                                                <option>Vice President - Research and Extension</option>
+                                                <option>Vice President - Administration and Finance</option>
+                                                <option>Vice President - Academic Affairs</option>
+                                                <option>Vice President - Planning and Development</option>
+                                                <option>Faculty Association</option>
+                                                <option>Alumni Association</option>
+                                                <option>University Accreditation Center</option>
+                                                <option>University Learning Resource Center</option>
+                                                <option>Integrated Research and Training Center</option>
+                                                <option>Office of Admission</option>
+                                                <option>Office of Student Affairs</option>
+                                                <option>University Registrar</option>
+                                                <option>University Medical and Dental Clinic</option>
+                                                <option>Industrial Relations and Job Placement Office</option>
+                                                <option>University Information Technology Center</option>
+                                            </select>
                                             <div class="error-message">
                                                 <small id="office-error-message" class="error-container" style="color:red;"></small>
                                             </div>
@@ -209,7 +228,15 @@
                                             <label for="campus">Campus:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="campus" name="campus">
+                                            <select class="form-control border-secondary" id="college">
+                                                <option>None</option>
+                                                <option>College of Science</option>
+                                                <option>College of Architecture and Fine Arts</option>
+                                                <option>College of Industrial Technology</option>
+                                                <option>College of Engineering</option>
+                                                <option>College of Industrial Education</option>
+                                                <option>College of Liberal Arts</option>
+                                            </select>
                                             <div class="error-message">
                                                 <small id="campus-error-message" class="error-container" style="color:red;"></small>
                                             </div>
