@@ -65,7 +65,7 @@
             </table>
             <div>
                 <?php
-                    //show "create new" button if the logged in user is hr staff
+                    //show "create new" button if the logged in user is an hr staff
                     if(User::isHumanResource())
                     {
                         echo"<button type='button' class='btn' data-toggle='modal' data-target='#create-new-career'>
