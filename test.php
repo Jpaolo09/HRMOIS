@@ -4,5 +4,5 @@
     require_once(INCLUDE_PATH.DS.'navlinks.php');
     require_once(INCLUDE_PATH.DS.'functions.php');
 
-    echo validateDate('2021-05-28');
+    echo DIRECTORY_SEPARATOR;
 ?>

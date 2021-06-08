@@ -32,16 +32,16 @@ function validateForm()
     }
 
     //validate office
-    if(office.value == "")
+    if(office.value == "None")
     {
-        setErrorFor("office", "Office cannot be blank");
+        setErrorFor("office", "Please select an office");
         error_count++;
     }
 
     //validate campus
-    if(campus.value == "")
+    if(campus.value == "None")
     {
-        setErrorFor("campus", "Campus cannot be blank");
+        setErrorFor("campus", "Please select a campus");
         error_count++;
     }
 

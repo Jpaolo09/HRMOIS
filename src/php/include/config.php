@@ -1,5 +1,5 @@
 <?php
-    //ABOUT: contains configurations
+    //ABOUT: contains website configurations
 
     //DATABASE
     defined('SERVER_NAME') ? null : define("SERVER_NAME", "localhost");

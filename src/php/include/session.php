@@ -12,7 +12,7 @@
         die();
     }
     elseif(isset($_SESSION["EMPID"]) && $_SESSION["DESIGNATION"] != "Human Resource")
-    {;
+    {
         //if logged in user is not an hr staff, restrict the pages he/she can access to only hompage and time in
         if(curr_page() != "index.php" && curr_page() != "timein.php")
         {
