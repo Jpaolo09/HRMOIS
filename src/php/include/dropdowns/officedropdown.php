@@ -2,7 +2,7 @@
     //ABOUT: Get all of the offices from the database then return it as dropdown options
     //NOTE: database is not included because it is already included in the page where this script will be used
     
-    $sql = "SELECT * FROM offices";
+    $sql = "SELECT * FROM offices ORDER BY OFFICE_NAME";
     $result = $conn->query($sql);
 
     if($result->num_rows > 0)

@@ -52,15 +52,7 @@
                 </thead>
                 <tbody>
                     <!--MODIFY HERE-->
-                    <tr>
-                        <td>Administrative Aide VI - Clerk III</td>
-                        <td>6</td>
-                        <td>1</td>
-                        <td>Medical Clinic/Manila</td>
-                        <td><button type="button" class="btn" data-toggle="modal" data-target="#career1">
-                            View Details
-                        </button></td>
-                    </tr>
+                    <?php require_once(PAGES_FUNC_PATH.DS.'homepage'.DS.'getcareers.php')?>
                 </tbody>
             </table>
             <div>
@@ -90,55 +82,55 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">Position</th>
-                                    <td>Administrative Aide VI - Clerk III</td>
+                                    <td id="position-name">None</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Office</th>
-                                    <td>Medical Clinic</td>
+                                    <td id="position-office">None</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Campus</th>
-                                    <td>Manila</td>
+                                    <td id="position-campus">None</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Number of Vacancies</th>
-                                    <td>1</td>
+                                    <td id="position-vacancy">None</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Salary Grade</th>
-                                    <td>6</td>
+                                    <td id="position-salarygrade">None</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Item Number</th>
-                                    <td>TUPB-ADA6-72-2004</td>
+                                    <td id="position-itemnumber">None</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Qualification</th>
-                                    <td>Completion of two years studies in college</td>
+                                    <td id="position-qualification">None</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Experience</th>
-                                    <td>None Required</td>
+                                    <td id="position-experience">None </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Training</th>
-                                    <td>None Required</td>
+                                    <td id="position-training">None</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Eligibility</th>
-                                    <td>Career Service Subprofessional</td>
+                                    <td id="position-eligibility">None</td>
                                 </tr>
                             </tbody>
                         </table>
                         <div>
                             <p>
-                                Interested and qualified applicants should signify their interest in writing. Attach the following documents to the application letter and send to the address below not later than <b>March 31, 2021</b>.
+                                Interested and qualified applicants should signify their interest in writing. Attach the following documents to the application letter and send to the address below not later than <b id="position-deadline">None</b>.
                                 <br><br>
-                                <ol>
-                                    <li>Fully accomplished Personal Data Sheet (PDS) with recent passport-sized picture (CS Form No. 212, Revised 2017) which can be downloaded at www.csc.gov.ph;</li> 
+                                <ol id="position-requirements">
+                                    <!--<li>Fully accomplished Personal Data Sheet (PDS) with recent passport-sized picture (CS Form No. 212, Revised 2017) which can be downloaded at www.csc.gov.ph;</li> 
                                     <li>Performance rating in the <b>last rating period</b> (if applicable);</li> 
                                     <li>Photocopy of certificate of eligibility/rating/license; and</li> 
-                                    <li>Photocopy of Transcript of Records.</li> 
+                                    <li>Photocopy of Transcript of Records.</li>--> 
                                 </ol>
                                 <br><br>
                                 <b>QUALIFIED APPLICANTS</b> are advised to hand in or send through courier/email their application to:
@@ -341,7 +333,7 @@
                                             <label for="requirement">List of Requirements:</label>
                                         </div>
                                         <div class="col">
-                                            <textarea class="form-control" id="requirements" rows="3" name="requirements"></textarea>
+                                            <textarea class="form-control" id="requirements" rows="3" name="requirements" placeholder="NOTE: please separate the requirements with numbers (ex: 1.First Requirement 2.Second Requirement)."></textarea>
                                             <div class="error-message">
                                                 <small id="requirements-error-message" class="error-container" style="color:red;"></small>
                                             </div>

@@ -6,18 +6,24 @@
 
 
     //sanitize and validate data to be saved
-    $position = filter_var($_POST['position'], FILTER_SANITIZE_STRING);
-    $office = filter_var($_POST['office'], FILTER_SANITIZE_STRING);
-    $campus = filter_var($_POST['campus'], FILTER_SANITIZE_STRING);
-    $vacancies = !filter_var($_POST['vacancies'], FILTER_VALIDATE_INT) ? $_POST['vacancies'] : 1;
-    $salary_grade = !filter_var($_POST['salarygrade'], FILTER_VALIDATE_INT) ? $_POST['salarygrade'] : 1;
-    $item_number = filter_var($_POST['itemnumber'], FILTER_SANITIZE_STRING);
-    $qualification = filter_var($_POST['qualification'], FILTER_SANITIZE_STRING);
-    $experience = filter_var($_POST['experience'], FILTER_SANITIZE_STRING);
-    $training = filter_var($_POST['training'], FILTER_SANITIZE_STRING);
-    $eligibility = filter_var($_POST['eligibility'], FILTER_SANITIZE_STRING);
-    $deadline = validatedate($_POST['deadline']) ? $_POST['deadline'] : date("Y-d-m");
+    $position = sanitizeString($_POST['position']);
+    $office = getOfficeID(sanitizeString($_POST['office']));
+    $campus = getCampusID(sanitizeString($_POST['campus']));
+    $vacancies = validateInt($_POST['vacancies']);
+    $salary_grade = validateInt($_POST['salarygrade']);
+    $item_number = sanitizeString($_POST['itemnumber']);
+    $qualification = sanitizeString($_POST['qualification']);
+    $experience = sanitizeString($_POST['experience']);
+    $training = sanitizeString($_POST['training']);
+    $eligibility = sanitizeString($_POST['eligibility']);
+    $deadline = validateDate($_POST['deadline']);
+    $requirements = sanitizeString($_POST['requirements']);
 
-    echo $deadline;
-    
+    //query to save the data into the database
+    $stmt = $conn->prepare("INSERT INTO position (POSITION, OFFICE_ID, CAMPUS_ID, NUM_OF_VACANCIES, SALARY_GRADE, ITEM_NUM, QUALIFICATION, EXPERIENCE, TRAINING, ELIGIBILITY, DEADLINE, REQ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("siiiisssssss", $position, $office, $campus, $vacancies, $salary_grade, $item_number, $qualification, $experience, $training, $eligibility, $deadline, $requirements);
+    $stmt->execute();
+    $stmt->close();
+    header('location: ../../../../index.php');
+    die();
 ?>

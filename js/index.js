@@ -154,3 +154,35 @@ function resetErrors()
         error_containers[i].innerHTML = "";
     }
 }
+
+
+//function to get all of the information of a career
+function getCareerInfo(id)
+{
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.onload = function(){
+        const myObj = JSON.parse(this.responseText);
+        document.getElementById("position-name").innerHTML = myObj.position;
+        document.getElementById("position-office").innerHTML = myObj.office;
+        document.getElementById("position-campus").innerHTML = myObj.campus;
+        document.getElementById("position-vacancy").innerHTML = myObj.vacancies;
+        document.getElementById("position-salarygrade").innerHTML = myObj.salarygrade;
+        document.getElementById("position-itemnumber").innerHTML = myObj.itemnumber;
+        document.getElementById("position-qualification").innerHTML = myObj.qualification;
+        document.getElementById("position-experience").innerHTML = myObj.experience;
+        document.getElementById("position-training").innerHTML = myObj.training;
+        document.getElementById("position-eligibility").innerHTML = myObj.eligibility;
+        document.getElementById("position-deadline").innerHTML = myObj.deadline;
+
+        const requirementsList = document.getElementById("position-requirements");
+        requirementsList.innerHTML = '';
+
+        for(var i = 0; i < myObj.requirements.length; i++){
+            const requirement = document.createElement('li');
+            requirement.innerHTML = myObj.requirements[i];
+            requirementsList.appendChild(requirement);
+        }
+    }
+    xmlhttp.open("GET", "./src/php/pages/homepage/getcareerinfo.php?id=" + id, true);
+    xmlhttp.send();
+}

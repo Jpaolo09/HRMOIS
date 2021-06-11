@@ -4,5 +4,5 @@
     require_once(INCLUDE_PATH.DS.'navlinks.php');
     require_once(INCLUDE_PATH.DS.'functions.php');
 
-    echo DIRECTORY_SEPARATOR;
+    echo SITE_ROOT;
 ?>
