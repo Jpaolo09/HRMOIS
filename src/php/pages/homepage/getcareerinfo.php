@@ -1,5 +1,5 @@
 <?php
-    //ABOUT: get all of the information of a certain career/position
+    //ABOUT: get all of the information of a certain career/position then return it in a JSON file
 
     require_once('../../include/database.php');
     require_once('../../include/functions.php');

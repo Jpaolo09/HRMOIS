@@ -39,14 +39,14 @@
         </div>
         <div class="d-flex align-items-center" id="timein-form-container">
             <div class="p-4 container align-self-center border" id="timein-form">
-                <form>
+                <form method="POST" onsubmit="return submitForm();" onreset="resetMessage();">
                     <div class="form-group">
                         <div class="d-flex justify-content-center align-items-center px-3 ">
                             <label class="radio-inline pr-5">
-                                <input type="radio" name="optradio" checked> Time In
+                                <input type="radio" name="radio" value="timein" checked> Time In
                             </label>
                             <label class="radio-inline pl-5">
-                                <input type="radio" name="optradio"> Time Out
+                                <input type="radio" name="radio" value="timeout"> Time Out
                             </label>
                         </div>
                     </div><br>
@@ -55,10 +55,13 @@
                             <label for="timein-date" class="mr-2">Date:</label>
                             <input type="date" class="form-control" id="timein-date" placeholder="date">
                         </div>
+                        <div class="error-message pl-5">
+                            <small id="timein-message" class="error-container pl-3" style="color:red;"></small>
+                        </div>
                     </div> <br>
                     <div class="d-flex justify-content-around">
                         <button type="reset" class="btn">CLEAR</button>
-                        <button type="button" class="btn">SUBMIT</button>
+                        <button type="submit" class="btn">SUBMIT</button>
                     </div>
                 </form>
             </div>
@@ -67,6 +70,7 @@
     </div>
 
 
+    <script src="js/timein.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

@@ -54,12 +54,7 @@
                 </thead>
                 <tbody>
                     <!--MODIFY HERE-->
-                    <tr>
-                        <td>Dr. Jesus Rodrigo F. Torres</td>
-                        <td id="date"></td>
-                        <td>8:00am</td>
-                        <td>5:00pm</td>
-                    </tr>
+                    <?php require_once(PAGES_FUNC_PATH.DS.'attendance'.DS.'getattendance.php');?>
                 </tbody>
             </table>
         </div>
@@ -72,7 +67,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
-    <script src="js/date.js"></script>
     <script>
         $(document).ready(function() {
             $('#attendance-table').DataTable();

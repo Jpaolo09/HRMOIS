@@ -1,4 +1,5 @@
 <?php
+    //TODO: employee page and payroll page
     require_once('src/php/include/initialize.php');
 ?>
 

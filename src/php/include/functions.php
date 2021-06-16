@@ -22,7 +22,7 @@
         }
         else
         {
-            return date("Y-d-m");
+            return null;
         }
     }
 
@@ -44,7 +44,7 @@
         }
         else
         {
-            return 0;
+            return null;
         }
     }
 ?>

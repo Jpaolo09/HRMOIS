@@ -15,7 +15,7 @@
             if($result->num_rows > 0)
             {
                 $row = $result->fetch_assoc();
-                $_SESSION["EMPID"] = $row["EMP_ID"];
+                $_SESSION["EMPID"] = intval($row["EMP_ID"]);
                 $_SESSION["USERNAME"] = $row["USERNAME"];
 
                 $sql = "SELECT * FROM employees WHERE EMP_ID = '$_SESSION[EMPID]'";

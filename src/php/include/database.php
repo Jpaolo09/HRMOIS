@@ -62,4 +62,16 @@
         $campus_name = $result_assoc['CAMPUS_NAME'];
         return $campus_name;
     }
+
+    //receives employee id then return employee name
+    function getEmployeeName($id){
+        global $conn;
+        $stmt = $conn->prepare("SELECT FNAME, MNAME, LNAME FROM employees WHERE EMP_ID = ?");
+        $stmt->bind_param("s", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result_assoc = $result->fetch_assoc();
+        $employee_name = $result_assoc['FNAME'].' '.$result_assoc['MNAME'].' '.$result_assoc['LNAME'];
+        return $employee_name;
+    }
 ?>

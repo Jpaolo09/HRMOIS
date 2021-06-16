@@ -333,7 +333,7 @@
                                             <label for="requirement">List of Requirements:</label>
                                         </div>
                                         <div class="col">
-                                            <textarea class="form-control" id="requirements" rows="3" name="requirements" placeholder="NOTE: please separate the requirements with numbers (ex: 1.First Requirement 2.Second Requirement)."></textarea>
+                                            <textarea class="form-control" id="requirements" rows="3" name="requirements" placeholder="Please separate the requirements with numbers (ex: 1.First Requirement 2.Second Requirement)."></textarea>
                                             <div class="error-message">
                                                 <small id="requirements-error-message" class="error-container" style="color:red;"></small>
                                             </div>
