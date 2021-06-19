@@ -47,4 +47,17 @@
             return null;
         }
     }
+
+    //validate email
+    function validateEmail($email)
+    {
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL))
+        {
+            return NULL;
+        }
+        else
+        {
+            return $email;
+        }
+    }
 ?>

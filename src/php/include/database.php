@@ -51,7 +51,8 @@
         return $campusID;
     }
 
-    //receives office id then return office name
+
+    //receives campus id then return office name
     function getCampusName($id){
         global $conn;
         $stmt = $conn->prepare("SELECT CAMPUS_NAME FROM campus WHERE CAMPUS_ID = ?");
@@ -63,6 +64,33 @@
         return $campus_name;
     }
 
+
+    //receives college name and return college id
+    function getCollegeID($college){
+        global $conn;
+        $stmt = $conn->prepare("SELECT COLLEGE_ID FROM college WHERE COLLEGE_NAME = ?");
+        $stmt->bind_param("s", $college);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result_assoc = $result->fetch_assoc();
+        $collegeID = $result_assoc['COLLEGE_ID'];
+        return $collegeID;
+    }
+
+
+    //receives college id and return college name
+    function getCollegeName($id){
+        global $conn;
+        $stmt = $conn->prepare("SELECT COLLEGE_NAME FROM college WHERE COLLEGE_ID = ?");
+        $stmt->bind_param("s", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result_assoc = $result->fetch_assoc();
+        $college_name = $result_assoc['COLLEGE_NAME'];
+        return $college_name;
+    }
+
+    
     //receives employee id then return employee name
     function getEmployeeName($id){
         global $conn;
@@ -73,5 +101,18 @@
         $result_assoc = $result->fetch_assoc();
         $employee_name = $result_assoc['FNAME'].' '.$result_assoc['MNAME'].' '.$result_assoc['LNAME'];
         return $employee_name;
+    }
+
+
+    //receives employee id then return designation
+    function getEmployeeDesignation($id){
+        global $conn;
+        $stmt = $conn->prepare("SELECT DESIGNATION FROM employees WHERE EMP_ID = ?");
+        $stmt->bind_param("s", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result_assoc = $result->fetch_assoc();
+        $employee_designation = $result_assoc['DESIGNATION'];
+        return $employee_designation;
     }
 ?>

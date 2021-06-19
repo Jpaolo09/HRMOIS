@@ -206,7 +206,7 @@
                                         <div class="col">
                                             <select class="form-control border-secondary" id="campus" name="campus">
                                                 <option>None</option>
-                                                <?php require_once(INCLUDE_PATH.DS.'dropdowns'.DS.'campusdropdown.php');?>
+                                                <?php require_once(INCLUDE_PATH.DS.'dropdowns'.DS.'branchdropdown.php');?>
                                             </select>
                                             <div class="error-message">
                                                 <small id="campus-error-message" class="error-container" style="color:red;"></small>

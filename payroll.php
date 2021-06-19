@@ -63,7 +63,7 @@
                 </thead>
                 <tbody>
                     <!--MODIFY HERE-->
-                    <tr>
+                    <!--<tr>
                         <td>Juan Dela Cruz</td>
                         <td>University President</td>
                         <td id="date"></td>
@@ -81,7 +81,8 @@
                             <button type="button" class="btn" data-toggle="modal" data-target="#employee1-payslip-edit">Edit</button>
                             <button type="button" class="btn" data-toggle="modal" data-target="#employee1-payslip-print">Print Payslip</button>
                         </td>
-                    </tr>
+                    </tr>-->
+                    <?php require_once(PAGES_FUNC_PATH.DS.'payroll'.DS.'getpayrolls.php')?>
                 </tbody>     
             </table>
         </div>
@@ -264,7 +265,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
-    <script src="js/date.js"></script>
     <script>
         $(document).ready(function() {
             $('#payroll-table').DataTable();

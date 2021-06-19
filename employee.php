@@ -56,7 +56,7 @@
                 </thead>
                 <tbody>
                     <!--MODIFY HERE-->
-                    <tr>
+                    <!--<tr>
                         <td>Dr. Jesus Rodrigo F. Torres</td>
                         <td>University President</td>
                         <td>Regular</td>
@@ -67,7 +67,8 @@
                             <button type="button" class="btn" data-toggle="modal" data-target="#employee1-print">Print</button>
                             <button type="button" class="btn" data-toggle="modal" data-target="#employee1-pdf">View Details</button>
                         </td>
-                    </tr>
+                    </tr>-->
+                    <?php require_once(PAGES_FUNC_PATH.DS.'employee'.DS.'getemployees.php')?>
                 </tbody> 
             </table>
 
@@ -87,43 +88,66 @@
                     
                     <div class="modal-header">
                         <h5 class="modal-title" id="edit-employee">Edit Employee</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="resetEditErrors()">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
                         <div>
-                            <form>
+                            <form id="edit-employee-form" method="POST" onsubmit="return validateEditForm()" onreset="resetEditErrors()">
 
                                 <div class="p-2">
                                     <div class="row d-flex align-items-center">
                                         <div class="col-4 px-5 d-flex justify-content-end">
-                                            <label for="name">Name:</label>
+                                            <label for="name">First Name:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="name" value="Dr. Jesus Rodrigo F. Torres">
+                                            <input type="text" class="form-control border-secondary" id="edit-fname" name="edit-fname">
+                                            <div class="error-message">
+                                                <small id="edit-fname-error-message" class="edit-error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-        
+
                                 <div class="p-2">
                                     <div class="row d-flex align-items-center">
                                         <div class="col-4 px-5 d-flex justify-content-end">
-                                            <label for="office">Office:</label>
+                                            <label for="name">Middle Name:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="office" value="President's Office">
+                                            <input type="text" class="form-control border-secondary" id="edit-mname" name="edit-mname">
+                                            <div class="error-message">
+                                                <small id="edit-mname-error-message" class="edit-error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                
+
+                                <div class="p-2">
+                                    <div class="row d-flex align-items-center">
+                                        <div class="col-4 px-5 d-flex justify-content-end">
+                                            <label for="name">Last Name:</label>
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control border-secondary" id="edit-lname" name="edit-lname">
+                                            <div class="error-message">
+                                                <small id="edit-lname-error-message" class="edit-error-container" style="color:red;"></small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="p-2">
                                     <div class="row d-flex align-items-center">
                                         <div class="col-4 px-5 d-flex justify-content-end">
                                             <label for="Address">Address:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="address" value="Ayala Blvd, Ermita, Manila, 1000 Metro Manila">
+                                            <input type="text" class="form-control border-secondary" id="edit-address" name="edit-address">
+                                            <div class="error-message">
+                                                <small id="edit-address-error-message" class="edit-error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -135,10 +159,10 @@
                                         </div>
                                         <div class="col d-flex">
                                             <label class="radio-inline pr-5">
-                                                <input type="radio" name="optradio"> Female
+                                                <input type="radio" name="edit-optradio" value="Female" checked> Female
                                             </label>
                                             <label class="radio-inline pl-5">
-                                                <input type="radio" name="optradio" checked> Male
+                                                <input type="radio" name="edit-optradio" value="Male"> Male
                                             </label>
                                         </div>
                                     </div>
@@ -150,7 +174,10 @@
                                             <label for="date-of-birth">Date of Birth:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="date" class="form-control border-secondary" id="date-of-birth">
+                                            <input type="date" class="form-control border-secondary" id="edit-dob" name="edit-dob">
+                                            <div class="error-message">
+                                                <small id="edit-dob-error-message" class="edit-error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -161,7 +188,10 @@
                                             <label for="place-of-birth">Place of Birth:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="place-of-birth" value="Manila">
+                                            <input type="text" class="form-control border-secondary" id="edit-pob" name="edit-pob">
+                                            <div class="error-message">
+                                                <small id="edit-pob-error-message" class="edit-error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -172,7 +202,24 @@
                                             <label for="telephone">Telephone:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="telephone" value="(+63 2) 8523.2293 / 5301.3001 to 61 loc 112/122">
+                                            <input type="text" class="form-control border-secondary" id="edit-telephone" name="edit-telephone">
+                                            <div class="error-message">
+                                                <small id="edit-telephone-error-message" class="edit-error-container" style="color:red;"></small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="p-2">
+                                    <div class="row d-flex align-items-center">
+                                        <div class="col-4 px-5 d-flex justify-content-end">
+                                            <label for="telephone">Email:</label>
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control border-secondary" id="edit-email" name="edit-email">
+                                            <div class="error-message">
+                                                <small id="edit-email-error-message" class="edit-error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -183,7 +230,7 @@
                                             <label for="civil-status">Civil Status:</label>
                                         </div>
                                         <div class="col">
-                                            <select class="form-control border-secondary" id="civil-status">
+                                            <select class="form-control border-secondary" id="edit-civil-status" name="edit-civil-status">
                                                 <option>Single</option>
                                                 <option>Married</option>
                                                 <option>Widowed</option>
@@ -199,7 +246,10 @@
                                             <label for="designation">Designation:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="designation" value="President">
+                                            <input type="text" class="form-control border-secondary" id="edit-designation" name="edit-designation">
+                                            <div class="error-message">
+                                                <small id="edit-designation-error-message" class="edit-error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -210,42 +260,30 @@
                                             <label for="branch">Branch:</label>
                                         </div>
                                         <div class="col">
-                                            <select class="form-control border-secondary" id="branch">
-                                                <option>Manila</option>
-                                                <option>Cavite</option>
-                                                <option>Visayas</option>
-                                                <option>Batangas</option>
+                                            <select class="form-control border-secondary" id="edit-branch" name="edit-branch">
+                                                <option>None</option>
+                                                <?php require(INCLUDE_PATH.DS.'dropdowns'.DS.'branchdropdown.php');?>
                                             </select>
+                                            <div class="error-message">
+                                                <small id="edit-branch-error-message" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>                                
-                                
+                                </div>
+
                                 <div class="p-2">
                                     <div class="row d-flex align-items-center">
                                         <div class="col-4 px-5 d-flex justify-content-end">
                                             <label for="office">Office:</label>
                                         </div>
                                         <div class="col">
-                                            <select class="form-control border-secondary" id="office">
+                                            <select class="form-control border-secondary" id="edit-office" name="edit-office">
                                                 <option>None</option>
-                                                <option>Board of Regents</option>
-                                                <option>Office of the President</option>
-                                                <option>Vice President - Research and Extension</option>
-                                                <option>Vice President - Administration and Finance</option>
-                                                <option>Vice President - Academic Affairs</option>
-                                                <option>Vice President - Planning and Development</option>
-                                                <option>Faculty Association</option>
-                                                <option>Alumni Association</option>
-                                                <option>University Accreditation Center</option>
-                                                <option>University Learning Resource Center</option>
-                                                <option>Integrated Research and Training Center</option>
-                                                <option>Office of Admission</option>
-                                                <option>Office of Student Affairs</option>
-                                                <option>University Registrar</option>
-                                                <option>University Medical and Dental Clinic</option>
-                                                <option>Industrial Relations and Job Placement Office</option>
-                                                <option>University Information Technology Center</option>
+                                                <?php require(INCLUDE_PATH.DS.'dropdowns'.DS.'officedropdown.php');?>
                                             </select>
+                                            <div class="error-message">
+                                                <small id="edit-office-error-message" class="edit-error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -256,15 +294,13 @@
                                             <label for="college">College:</label>
                                         </div>
                                         <div class="col">
-                                            <select class="form-control border-secondary" id="college">
+                                            <select class="form-control border-secondary" id="edit-college" name="edit-college">
                                                 <option>None</option>
-                                                <option>College of Science</option>
-                                                <option>College of Architecture and Fine Arts</option>
-                                                <option>College of Industrial Technology</option>
-                                                <option>College of Engineering</option>
-                                                <option>College of Industrial Education</option>
-                                                <option>College of Liberal Arts</option>
+                                                <?php require(INCLUDE_PATH.DS.'dropdowns'.DS.'collegesdropdown.php');?>
                                             </select>
+                                            <div class="error-message">
+                                                <small id="edit-college-error-message" class="edit-error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -275,7 +311,7 @@
                                             <label for="work-status">Work Status:</label>
                                         </div>
                                         <div class="col">
-                                            <select class="form-control border-secondary" id="work-status">
+                                            <select class="form-control border-secondary" id="edit-workstatus" name="edit-workstatus">
                                                 <option>Regular</option>
                                                 <option>Part-Time</option>
                                                 <option>Suspended</option>
@@ -291,7 +327,10 @@
                                             <label for="hired-date">Hired Date:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="date" class="form-control border-secondary" id="hired-date">
+                                            <input type="date" class="form-control border-secondary" id="edit-hireddate" name="edit-hireddate">
+                                            <div class="error-message">
+                                                <small id="edit-hireddate-error-message" class="edit-error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -323,17 +362,45 @@
                     </div>
                     <div class="modal-body">
                         <div>
-                            <form id="add-employee-form" method="POST" onsubmit="return validateNewForm()" onreset="resetErrors()">
+                            <form id="add-employee-form" action="src/php/pages/employee/addemployee.php" method="POST" onsubmit="return validateCreateForm()" onreset="resetErrors()">
 
                                 <div class="p-2">
                                     <div class="row d-flex align-items-center">
                                         <div class="col-4 px-5 d-flex justify-content-end">
-                                            <label for="name">Name:</label>
+                                            <label for="name">First Name:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="new-name">
+                                            <input type="text" class="form-control border-secondary" id="create-fname" name="create-fname">
                                             <div class="error-message">
-                                                <small id="new-name-error-message" class="error-container" style="color:red;"></small>
+                                                <small id="create-fname-error-message" class="error-container" style="color:red;"></small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="p-2">
+                                    <div class="row d-flex align-items-center">
+                                        <div class="col-4 px-5 d-flex justify-content-end">
+                                            <label for="name">Middle Name:</label>
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control border-secondary" id="create-mname" name="create-mname">
+                                            <div class="error-message">
+                                                <small id="create-mname-error-message" class="error-container" style="color:red;"></small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="p-2">
+                                    <div class="row d-flex align-items-center">
+                                        <div class="col-4 px-5 d-flex justify-content-end">
+                                            <label for="name">Last Name:</label>
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control border-secondary" id="create-lname" name="create-lname">
+                                            <div class="error-message">
+                                                <small id="create-lname-error-message" class="error-container" style="color:red;"></small>
                                             </div>
                                         </div>
                                     </div>
@@ -345,9 +412,9 @@
                                             <label for="Address">Address:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="new-address">
+                                            <input type="text" class="form-control border-secondary" id="create-address" name="create-address">
                                             <div class="error-message">
-                                                <small id="new-address-error-message" class="error-container" style="color:red;"></small>
+                                                <small id="create-address-error-message" class="error-container" style="color:red;"></small>
                                             </div>
                                         </div>
                                     </div>
@@ -360,10 +427,10 @@
                                         </div>
                                         <div class="col d-flex">
                                             <label class="radio-inline pr-5">
-                                                <input type="radio" name="new-optradio" checked> Female
+                                                <input type="radio" name="create-optradio" value="Female" checked> Female
                                             </label>
                                             <label class="radio-inline pl-5">
-                                                <input type="radio" name="new-optradio"> Male
+                                                <input type="radio" name="create-optradio" value="Male"> Male
                                             </label>
                                         </div>
                                     </div>
@@ -375,9 +442,9 @@
                                             <label for="date-of-birth">Date of Birth:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="date" class="form-control border-secondary" id="new-dob">
+                                            <input type="date" class="form-control border-secondary" id="create-dob" name="create-dob">
                                             <div class="error-message">
-                                                <small id="new-dob-error-message" class="error-container" style="color:red;"></small>
+                                                <small id="create-dob-error-message" class="error-container" style="color:red;"></small>
                                             </div>
                                         </div>
                                     </div>
@@ -389,9 +456,9 @@
                                             <label for="place-of-birth">Place of Birth:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="new-pob">
+                                            <input type="text" class="form-control border-secondary" id="create-pob" name="create-pob">
                                             <div class="error-message">
-                                                <small id="new-pob-error-message" class="error-container" style="color:red;"></small>
+                                                <small id="create-pob-error-message" class="error-container" style="color:red;"></small>
                                             </div>
                                         </div>
                                     </div>
@@ -403,9 +470,23 @@
                                             <label for="telephone">Telephone:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="new-telephone">
+                                            <input type="text" class="form-control border-secondary" id="create-telephone" name="create-telephone">
                                             <div class="error-message">
-                                                <small id="new-telephone-error-message" class="error-container" style="color:red;"></small>
+                                                <small id="create-telephone-error-message" class="error-container" style="color:red;"></small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="p-2">
+                                    <div class="row d-flex align-items-center">
+                                        <div class="col-4 px-5 d-flex justify-content-end">
+                                            <label for="telephone">Email:</label>
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control border-secondary" id="create-email" name="create-email">
+                                            <div class="error-message">
+                                                <small id="create-email-error-message" class="error-container" style="color:red;"></small>
                                             </div>
                                         </div>
                                     </div>
@@ -417,7 +498,7 @@
                                             <label for="civil-status">Civil Status:</label>
                                         </div>
                                         <div class="col">
-                                            <select class="form-control border-secondary" id="new-civil-status">
+                                            <select class="form-control border-secondary" id="create-civil-status" name="create-civil-status">
                                                 <option>Single</option>
                                                 <option>Married</option>
                                                 <option>Widowed</option>
@@ -433,9 +514,9 @@
                                             <label for="designation">Designation:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="new-designation">
+                                            <input type="text" class="form-control border-secondary" id="create-designation" name="create-designation">
                                             <div class="error-message">
-                                                <small id="new-designation-error-message" class="error-container" style="color:red;"></small>
+                                                <small id="create-designation-error-message" class="error-container" style="color:red;"></small>
                                             </div>
                                         </div>
                                     </div>
@@ -447,12 +528,13 @@
                                             <label for="branch">Branch:</label>
                                         </div>
                                         <div class="col">
-                                            <select class="form-control border-secondary" id="new-branch">
-                                                <option>Manila</option>
-                                                <option>Cavite</option>
-                                                <option>Visayas</option>
-                                                <option>Batangas</option>
+                                            <select class="form-control border-secondary" id="create-branch" name="create-branch">
+                                                <option>None</option>
+                                                <?php require(INCLUDE_PATH.DS.'dropdowns'.DS.'branchdropdown.php');?>
                                             </select>
+                                            <div class="error-message">
+                                                <small id="create-branch-error-message" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -463,28 +545,12 @@
                                             <label for="office">Office:</label>
                                         </div>
                                         <div class="col">
-                                            <select class="form-control border-secondary" id="new-office">
+                                            <select class="form-control border-secondary" id="create-office" name="create-office">
                                                 <option>None</option>
-                                                <option>Board of Regents</option>
-                                                <option>Office of the President</option>
-                                                <option>Vice President - Research and Extension</option>
-                                                <option>Vice President - Administration and Finance</option>
-                                                <option>Vice President - Academic Affairs</option>
-                                                <option>Vice President - Planning and Development</option>
-                                                <option>Faculty Association</option>
-                                                <option>Alumni Association</option>
-                                                <option>University Accreditation Center</option>
-                                                <option>University Learning Resource Center</option>
-                                                <option>Integrated Research and Training Center</option>
-                                                <option>Office of Admission</option>
-                                                <option>Office of Student Affairs</option>
-                                                <option>University Registrar</option>
-                                                <option>University Medical and Dental Clinic</option>
-                                                <option>Industrial Relations and Job Placement Office</option>
-                                                <option>University Information Technology Center</option>
+                                                <?php require(INCLUDE_PATH.DS.'dropdowns'.DS.'officedropdown.php');?>
                                             </select>
                                             <div class="error-message">
-                                                <small id="new-office-error-message" class="error-container" style="color:red;"></small>
+                                                <small id="create-office-error-message" class="error-container" style="color:red;"></small>
                                             </div>
                                         </div>
                                     </div>
@@ -496,17 +562,12 @@
                                             <label for="college">College:</label>
                                         </div>
                                         <div class="col">
-                                            <select class="form-control border-secondary" id="new-college">
+                                            <select class="form-control border-secondary" id="create-college" name="create-college">
                                                 <option>None</option>
-                                                <option>College of Science</option>
-                                                <option>College of Architecture and Fine Arts</option>
-                                                <option>College of Industrial Technology</option>
-                                                <option>College of Engineering</option>
-                                                <option>College of Industrial Education</option>
-                                                <option>College of Liberal Arts</option>
+                                                <?php require(INCLUDE_PATH.DS.'dropdowns'.DS.'collegesdropdown.php');?>
                                             </select>
                                             <div class="error-message">
-                                                <small id="new-college-error-message" class="error-container" style="color:red;"></small>
+                                                <small id="create-college-error-message" class="error-container" style="color:red;"></small>
                                             </div>
                                         </div>
                                     </div>
@@ -518,7 +579,7 @@
                                             <label for="work-status">Work Status:</label>
                                         </div>
                                         <div class="col">
-                                            <select class="form-control border-secondary" id="new-workstatus">
+                                            <select class="form-control border-secondary" id="create-workstatus" name="create-workstatus">
                                                 <option>Regular</option>
                                                 <option>Part-Time</option>
                                                 <option>Suspended</option>
@@ -534,9 +595,9 @@
                                             <label for="hired-date">Hired Date:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="date" class="form-control border-secondary" id="new-hireddate">
+                                            <input type="date" class="form-control border-secondary" id="create-hireddate" name="create-hireddate">
                                             <div class="error-message">
-                                                <small id="new-hireddate-error-message" class="error-container" style="color:red;"></small>
+                                                <small id="create-hireddate-error-message" class="error-container" style="color:red;"></small>
                                             </div>
                                         </div>
                                     </div>
@@ -554,7 +615,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
 
@@ -564,7 +624,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
-    <script src="js/date.js"></script>
     <script src="js/employee.js"></script>
     <script>
         $(document).ready(function() {
