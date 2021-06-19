@@ -17,8 +17,7 @@
                     <td>".htmlspecialchars($row['EMAIL'])."</td>
                     <td>
                         <button type='button' class='btn' data-toggle='modal' data-target='#employee1-edit' onclick='getEmployeeInfo(".$row['EMP_ID'].")'>Edit</button>
-                        <button type='button' class='btn' data-toggle='modal' data-target='#employee1-print'>Print</button>
-                        <button type='button' class='btn' data-toggle='modal' data-target='#employee1-pdf'>View Details</button>
+                        <a href='./src/php/pages/employee/printemployeerecord.php?id=".$row['EMP_ID']."' target='blank'><button type='button' class='btn' data-toggle='modal' data-target='#employee1-pdf'>View Details</button></a>
                     </td>
                 </tr>";
         }

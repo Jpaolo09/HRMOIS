@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 19, 2021 at 11:38 AM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.7
+-- Generation Time: May 22, 2021 at 02:07 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `hrmois_db`
 --
+CREATE DATABASE IF NOT EXISTS hrmios_db;
+USE hrmios_db;
 
 -- --------------------------------------------------------
 
@@ -34,31 +36,6 @@ CREATE TABLE `attendance` (
   `TIME_OUT` time NOT NULL,
   `DATE` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `attendance`
---
-
-INSERT INTO `attendance` (`ATTENDANCE_ID`, `EMP_ID`, `TIME_IN`, `TIME_OUT`, `DATE`) VALUES
-(6, 2, '20:54:19', '11:50:01', '2021-07-10'),
-(7, 2, '20:57:33', '00:00:00', '2021-06-12'),
-(8, 2, '21:28:39', '00:00:00', '2021-06-23'),
-(9, 2, '21:32:14', '00:00:00', '2021-06-15'),
-(10, 2, '21:35:42', '00:00:00', '2021-05-30'),
-(11, 2, '11:43:10', '12:40:55', '2021-06-16'),
-(12, 2, '11:56:22', '00:00:00', '2021-07-07'),
-(13, 2, '12:20:06', '00:00:00', '2021-06-22'),
-(14, 2, '12:20:14', '00:00:00', '2021-06-28'),
-(15, 1, '12:39:22', '12:40:12', '2021-06-16'),
-(16, 1, '12:58:17', '12:58:38', '2021-06-28'),
-(17, 1, '17:26:29', '00:00:00', '2021-06-30'),
-(18, 2, '21:19:46', '21:20:12', '2021-06-17'),
-(19, 2, '22:07:42', '22:09:12', '2021-06-18'),
-(20, 2, '22:12:43', '00:00:00', '2021-06-30'),
-(21, 2, '15:12:01', '00:00:00', '2021-06-19'),
-(22, 2, '15:12:07', '15:12:46', '2021-06-20'),
-(23, 1, '15:14:00', '00:00:00', '2021-06-04'),
-(24, 2, '15:17:32', '00:00:00', '2022-02-16');
 
 -- --------------------------------------------------------
 
@@ -101,7 +78,8 @@ INSERT INTO `college` (`COLLEGE_ID`, `COLLEGE_NAME`) VALUES
 (3, 'College of Industrial Education'),
 (4, 'College of Industrial Technology'),
 (5, 'College of Liberal Arts'),
-(6, 'College of Science');
+(6, 'College of Science'),
+(7, 'NONE');
 
 -- --------------------------------------------------------
 
@@ -120,12 +98,11 @@ CREATE TABLE `employees` (
   `DOB` date NOT NULL,
   `PLACE_OF_BIRTH` varchar(100) NOT NULL,
   `TEL_NO` varchar(30) NOT NULL,
-  `EMAIL` varchar(50) NOT NULL,
   `CIVIL_STATUS` enum('SINGLE','MARRIED','WIDOWED','DIVORCED') NOT NULL,
   `DESIGNATION` varchar(50) NOT NULL,
   `COLLEGE_ID` int(11) NOT NULL,
   `CAMPUS_ID` int(11) NOT NULL,
-  `WORK_STATUS` enum('REGULAR','PART-TIME','SUSPENDED','RESIGNED OR FIRED') NOT NULL,
+  `WORK_STATUS` enum('REGULAR','PART-TIME','SUSPENDED','') NOT NULL,
   `HIRED_DATE` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -133,11 +110,9 @@ CREATE TABLE `employees` (
 -- Dumping data for table `employees`
 --
 
-INSERT INTO `employees` (`EMP_ID`, `FNAME`, `MNAME`, `LNAME`, `OFFICE_ID`, `ADDRESS`, `SEX`, `DOB`, `PLACE_OF_BIRTH`, `TEL_NO`, `EMAIL`, `CIVIL_STATUS`, `DESIGNATION`, `COLLEGE_ID`, `CAMPUS_ID`, `WORK_STATUS`, `HIRED_DATE`) VALUES
-(1, 'Jesus Rodrigo', 'F.', 'Torres', 2, 'Ayala Blvd, Ermita, Manila, 1000 Metro Manila', 'MALE', '1973-09-16', 'Manila', '(+63) 9054687742', 'jesus@tup.edu.ph', 'MARRIED', 'President', 1, 1, 'REGULAR', '2019-06-11'),
-(2, 'Lorna', 'S.', 'Santos', 14, 'Manila', 'FEMALE', '1980-05-11', 'Cavite', '(+63) 9751447832', 'lorna@tup.edu.ph', 'SINGLE', 'Human Resource', 1, 1, 'REGULAR', '2021-05-11'),
-(35, 'Juan', 'Dela', 'Cruz', 5, 'Manila', 'MALE', '2021-06-19', 'Manila', '09876351736', 'juan@tup.edu.ph', 'MARRIED', 'Human Resource', 1, 1, 'REGULAR', '2021-06-19'),
-(36, 'Jefferson', 'B.', 'Salvador', 9, 'Cavite', 'MALE', '2021-06-19', 'Cavite', '09876351736', 'jep@gmail.com', 'SINGLE', 'Human Resource', 3, 1, 'REGULAR', '2021-06-19');
+INSERT INTO `employees` (`EMP_ID`, `FNAME`, `MNAME`, `LNAME`, `OFFICE_ID`, `ADDRESS`, `SEX`, `DOB`, `PLACE_OF_BIRTH`, `TEL_NO`, `CIVIL_STATUS`, `DESIGNATION`, `COLLEGE_ID`, `CAMPUS_ID`, `WORK_STATUS`, `HIRED_DATE`) VALUES
+(1, 'Jesus Rodrigo', 'F.', 'Torres', 2, 'Ayala Blvd, Ermita, Manila, 1000 Metro Manila', 'MALE', '1973-09-16', 'Manila', '(+63) 9054687742', 'MARRIED', 'President', 7, 1, 'REGULAR', '2019-06-11'),
+(2, 'Lorna', 'S.', 'Santos', 14, 'Manila', 'FEMALE', '1980-05-11', 'Cavite', '(+63) 9751447832', 'SINGLE', 'Human Resource', 7, 1, 'REGULAR', '2021-05-11');
 
 -- --------------------------------------------------------
 
@@ -184,7 +159,7 @@ CREATE TABLE `payroll` (
   `PR_ID` int(11) NOT NULL,
   `EMP_ID` int(11) NOT NULL,
   `DATE` date NOT NULL,
-  `WORKING_HOURS` int(11) NOT NULL,
+  `ATTENDANCE_ID` int(11) NOT NULL,
   `BASIC_PAY` int(11) NOT NULL,
   `GROSS_PAY` int(11) NOT NULL,
   `CASH_ADVANCE` int(11) NOT NULL,
@@ -195,14 +170,6 @@ CREATE TABLE `payroll` (
   `DEDUCTION` int(11) NOT NULL,
   `NET_PAY` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `payroll`
---
-
-INSERT INTO `payroll` (`PR_ID`, `EMP_ID`, `DATE`, `WORKING_HOURS`, `BASIC_PAY`, `GROSS_PAY`, `CASH_ADVANCE`, `SSS`, `PHILHEALTH`, `PAGIBIG`, `OTHERS`, `DEDUCTION`, `NET_PAY`) VALUES
-(14, 35, '2021-06-19', 0, 250, 10000, 0, 130, 160, 150, 0, 0, 8000),
-(15, 36, '2021-06-19', 0, 250, 10000, 0, 130, 160, 150, 0, 0, 8000);
 
 -- --------------------------------------------------------
 
@@ -217,7 +184,6 @@ CREATE TABLE `position` (
   `CAMPUS_ID` int(11) NOT NULL,
   `NUM_OF_VACANCIES` int(11) NOT NULL,
   `SALARY_GRADE` int(11) NOT NULL,
-  `ITEM_NUM` varchar(50) NOT NULL DEFAULT 'TUPB-0000-00-0000',
   `QUALIFICATION` varchar(100) NOT NULL,
   `EXPERIENCE` varchar(100) NOT NULL DEFAULT 'None Required',
   `TRAINING` varchar(100) NOT NULL DEFAULT 'None Required',
@@ -230,10 +196,8 @@ CREATE TABLE `position` (
 -- Dumping data for table `position`
 --
 
-INSERT INTO `position` (`POS_ID`, `POSITION`, `OFFICE_ID`, `CAMPUS_ID`, `NUM_OF_VACANCIES`, `SALARY_GRADE`, `ITEM_NUM`, `QUALIFICATION`, `EXPERIENCE`, `TRAINING`, `ELIGIBILITY`, `DEADLINE`, `REQ`) VALUES
-(1, 'Administrative Aide VI - Clerk III', 15, 1, 1, 6, 'TUPB-0000-00-0000', 'Completion of two years in college.', 'None Required', 'None Required', 'Career Service Subprofessional', '2021-05-22', '1. Fully accomplished Personal Data Sheet (PDS) with recent passport-sized picture (CS Form No. 212, Revised 2017) which can be downloaded at www.csc.gov.ph; 2. Performance rating in the last rating period (if applicable); 3. Photocopy of certificate of eligibility/rating/license; and 4. Photocopy of Transcript of Records.'),
-(3, '	Administrative Officer V - Cashier III', 17, 1, 1, 18, 'TUPB-ADOF5-9-2004', 'Bachelor&#39;s degree', 'Two (2) years of relevant experience', 'Eight (8) hours of relevant training', 'Career Service Professional', '2021-07-10', '1. Fully accomplished Personal Data Sheet (PDS) with recent passport-sized picture (CS Form No. 212, Revised 2017) which can be downloaded at www.csc.gov.ph;\r\n2. Performance rating in the last rating period (if applicable);\r\n3. Photocopy of certificate of eligibility/rating/license; and\r\n4. Photocopy of Transcript of Records.'),
-(4, 'Science Research Assistant', 11, 1, 1, 18, 'TUPB-ADOF5-9-2004', 'Bachelor&#39;s degree', 'Two (2) years of relevant experience', 'Eight (8) hours of relevant training', 'Career Service Professional', '2021-08-20', '1. Fully accomplished Personal Data Sheet (PDS) with recent passport-sized picture (CS Form No. 212, Revised 2017) which can be downloaded at www.csc.gov.ph;\r\n2. Performance rating in the last rating period (if applicable);\r\n3. Photocopy of certificate of eligibility/rating/license; and\r\n4. Photocopy of Transcript of Records.');
+INSERT INTO `position` (`POS_ID`, `POSITION`, `OFFICE_ID`, `CAMPUS_ID`, `NUM_OF_VACANCIES`, `SALARY_GRADE`, `QUALIFICATION`, `EXPERIENCE`, `TRAINING`, `ELIGIBILITY`, `DEADLINE`, `REQ`) VALUES
+(1, 'Administrative Aide VI - Clerk III', 15, 1, 1, 6, 'Completion of two years in college.', 'None Required', 'None Required', 'Career Service Subprofessional', '2021-05-22', '');
 
 -- --------------------------------------------------------
 
@@ -253,8 +217,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`USER_ID`, `USERNAME`, `PASSWORD`, `EMP_ID`) VALUES
-(1, 'lorna@hr', 'hr1234', 2),
-(2, 'rodrigo@employee', 'employee1234', 1);
+(1, 'lorna@hr', 'hr1234', 2);
 
 --
 -- Indexes for dumped tables
@@ -299,6 +262,7 @@ ALTER TABLE `offices`
 --
 ALTER TABLE `payroll`
   ADD PRIMARY KEY (`PR_ID`),
+  ADD KEY `ATTENDANCE_ID` (`ATTENDANCE_ID`),
   ADD KEY `EMP_ID` (`EMP_ID`);
 
 --
@@ -324,7 +288,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `ATTENDANCE_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `ATTENDANCE_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `campus`
@@ -342,7 +306,7 @@ ALTER TABLE `college`
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `EMP_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `EMP_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `offices`
@@ -354,19 +318,19 @@ ALTER TABLE `offices`
 -- AUTO_INCREMENT for table `payroll`
 --
 ALTER TABLE `payroll`
-  MODIFY `PR_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `PR_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `position`
 --
 ALTER TABLE `position`
-  MODIFY `POS_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `POS_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `USER_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `USER_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -390,6 +354,7 @@ ALTER TABLE `employees`
 -- Constraints for table `payroll`
 --
 ALTER TABLE `payroll`
+  ADD CONSTRAINT `payroll_ibfk_1` FOREIGN KEY (`ATTENDANCE_ID`) REFERENCES `attendance` (`ATTENDANCE_ID`),
   ADD CONSTRAINT `payroll_ibfk_2` FOREIGN KEY (`EMP_ID`) REFERENCES `employees` (`EMP_ID`);
 
 --

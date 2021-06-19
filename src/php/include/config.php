@@ -12,4 +12,5 @@
     defined('SITE_ROOT') ? null : define('SITE_ROOT', $_SERVER["DOCUMENT_ROOT"].DS.'HRMOIS');
     defined('INCLUDE_PATH') ? null : define('INCLUDE_PATH', SITE_ROOT.DS.'src'.DS.'php'.DS.'include' );
     defined('PAGES_FUNC_PATH') ? null : define('PAGES_FUNC_PATH', SITE_ROOT.DS.'src'.DS.'php'.DS.'pages');
+    defined('LIB_PATH') ? null : define('LIB_PATH', SITE_ROOT.DS.'lib'.DS);
 ?>
