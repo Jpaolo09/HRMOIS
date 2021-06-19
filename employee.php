@@ -94,7 +94,7 @@
                     </div>
                     <div class="modal-body">
                         <div>
-                            <form id="edit-employee-form" method="POST" onsubmit="return validateEditForm()" onreset="resetEditErrors()">
+                            <form id="edit-employee-form" action="src/php/pages/employee/editemployee.php" method="POST" onsubmit="return validateEditForm()" onreset="resetEditErrors()">
 
                                 <div class="p-2">
                                     <div class="row d-flex align-items-center">
@@ -159,10 +159,10 @@
                                         </div>
                                         <div class="col d-flex">
                                             <label class="radio-inline pr-5">
-                                                <input type="radio" name="edit-optradio" value="Female" checked> Female
+                                                <input type="radio" class="edit-optradio" name="edit-optradio" value="Female" checked> Female
                                             </label>
                                             <label class="radio-inline pl-5">
-                                                <input type="radio" name="edit-optradio" value="Male"> Male
+                                                <input type="radio" class="edit-optradio" name="edit-optradio" value="Male"> Male
                                             </label>
                                         </div>
                                     </div>
@@ -315,7 +315,7 @@
                                                 <option>Regular</option>
                                                 <option>Part-Time</option>
                                                 <option>Suspended</option>
-                                                <option>Resigned or Fired</option>
+                                                <option>Resigned or fired</option>
                                             </select>
                                         </div>
                                     </div>
@@ -583,7 +583,7 @@
                                                 <option>Regular</option>
                                                 <option>Part-Time</option>
                                                 <option>Suspended</option>
-                                                <option>Resigned or Fired</option>
+                                                <option>Resigned or fired</option>
                                             </select>
                                         </div>
                                     </div>

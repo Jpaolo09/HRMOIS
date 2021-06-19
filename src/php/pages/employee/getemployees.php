@@ -16,7 +16,7 @@
                     <td>".htmlspecialchars($row['TEL_NO'])."</td>
                     <td>".htmlspecialchars($row['EMAIL'])."</td>
                     <td>
-                        <button type='button' class='btn' data-toggle='modal' data-target='#employee1-edit'>Edit</button>
+                        <button type='button' class='btn' data-toggle='modal' data-target='#employee1-edit' onclick='getEmployeeInfo(".$row['EMP_ID'].")'>Edit</button>
                         <button type='button' class='btn' data-toggle='modal' data-target='#employee1-print'>Print</button>
                         <button type='button' class='btn' data-toggle='modal' data-target='#employee1-pdf'>View Details</button>
                     </td>

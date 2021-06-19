@@ -93,43 +93,23 @@
                     
                     <div class="modal-header">
                         <h5 class="modal-title" id="edit-payslip-title">Edit Payslip</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="resetErrors()">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
                         <div>
-                            <form>
-
-                                <div class="p-2">
-                                    <div class="row d-flex align-items-center">
-                                        <div class="col-4 px-5 d-flex justify-content-end">
-                                            <label for="name">Name:</label>
-                                        </div>
-                                        <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="name" value="Dr. Jesus Rodrigo F. Torres">
-                                        </div>
-                                    </div>
-                                </div>
-        
-                                <div class="p-2">
-                                    <div class="row d-flex align-items-center">
-                                        <div class="col-4 px-5 d-flex justify-content-end">
-                                            <label for="designation">Designation:</label>
-                                        </div>
-                                        <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="designation" value="President">
-                                        </div>
-                                    </div>
-                                </div>
-                                
+                            <form action="src/php/pages/payroll/editpayroll.php" method="POST" onsubmit="return validateForm()" onreset="resetErrors()">                           
                                 <div class="p-2">
                                     <div class="row d-flex align-items-center">
                                         <div class="col-4 px-5 d-flex justify-content-end">
                                             <label for="date">Date:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="date" class="form-control border-secondary" id="date">
+                                            <input type="date" class="form-control border-secondary" id="date" name="date">
+                                            <div class="error-message">
+                                                <small id="date-error-container" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -140,7 +120,10 @@
                                             <label for="working-hours">Working Hours:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="working-hours" value="40">
+                                            <input type="text" class="form-control border-secondary numeric-input" id="working-hours" name="working-hours" value="0">
+                                            <div class="error-message">
+                                                <small id="error-1" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -151,7 +134,10 @@
                                             <label for="basic">Basic Pay:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="basic" value="250">
+                                            <input type="text" class="form-control border-secondary numeric-input" id="basic" name="basic" value="0">
+                                            <div class="error-message">
+                                                <small id="error-2" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -162,7 +148,10 @@
                                             <label for="grosspay">Gross Pay:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="grosspay" value="10000">
+                                            <input type="text" class="form-control border-secondary numeric-input" id="grosspay" name="grosspay" value="0">
+                                            <div class="error-message">
+                                                <small id="error-3" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -173,7 +162,10 @@
                                             <label for="advance">Cash Advance:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="advance" value="1000">
+                                            <input type="text" class="form-control border-secondary numeric-input" id="advance" name="advance" value="0">
+                                            <div class="error-message">
+                                                <small id="error-4" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -184,7 +176,10 @@
                                             <label for="sss">SSS:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="sss" value="130">
+                                            <input type="text" class="form-control border-secondary numeric-input" id="sss" name="sss" value="0">
+                                            <div class="error-message">
+                                                <small id="error-5" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -195,7 +190,10 @@
                                             <label for="philheath">Phil Health:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="advance" value="160">
+                                            <input type="text" class="form-control border-secondary numeric-input" id="philhealth" name="philhealth" value="0">
+                                            <div class="error-message">
+                                                <small id="error-6" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -206,7 +204,10 @@
                                             <label for="pagibig">Pagibig:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="advance" value="1000">
+                                            <input type="text" class="form-control border-secondary numeric-input" id="pagibig" name="pagibig" value="0">
+                                            <div class="error-message">
+                                                <small id="error-7" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -217,7 +218,10 @@
                                             <label for="others">Others:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="advance" value="100">
+                                            <input type="text" class="form-control border-secondary numeric-input" id="others" name="others" value="0">
+                                            <div class="error-message">
+                                                <small id="error-8" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -228,7 +232,10 @@
                                             <label for="deductions">Deductions:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="deductions" value="1540">
+                                            <input type="text" class="form-control border-secondary numeric-input" id="deductions" name="deductions" value="0">
+                                            <div class="error-message">
+                                                <small id="error-9" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -239,7 +246,10 @@
                                             <label for="netpay">Netpay:</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control border-secondary" id="netpay" value="8460">
+                                            <input type="text" class="form-control border-secondary numeric-input" id="netpay" name="netpay" value="0">
+                                            <div class="error-message">
+                                                <small id="error-10" class="error-container" style="color:red;"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -265,6 +275,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+    <script src="js/payroll.js"></script>
     <script>
         $(document).ready(function() {
             $('#payroll-table').DataTable();

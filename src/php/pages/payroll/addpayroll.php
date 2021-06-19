@@ -28,6 +28,7 @@
         global $net_pay;
         global $curr_date;
 
+        //query to add the new payroll record to the database
         $stmt = $conn->prepare("INSERT INTO payroll (EMP_ID, DATE, WORKING_HOURS, BASIC_PAY, GROSS_PAY, CASH_ADVANCE, SSS, PHILHEALTH, PAGIBIG, OTHERS, DEDUCTION, NET_PAY) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");  
         $stmt->bind_param("isiiiiiiiiii", $id, $curr_date, $working_hours, $basic_pay, $gross_pay, $cash_advance, $sss, $philhealth, $pagibig, $others, $deductions, $net_pay);
         $stmt->execute();

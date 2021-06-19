@@ -32,7 +32,7 @@ const edit_hired_date = document.getElementById("edit-hireddate");
 
 var error_containers = document.getElementsByClassName("error-container");
 var edit_error_containers = document.getElementsByClassName("edit-error-container");
-var letters = /^[A-Za-z]+$/;
+var letters = /^[A-Za-z .]+$/;
 var re_email = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 //function to validate the form for adding employee
@@ -286,7 +286,7 @@ function validateEditForm()
 
     if(error_count < 1)
     {
-        return confirm("Do you really want to save the following data?");
+        return confirm("Do you really want to save the following changes?");
     }
     else
     {
@@ -320,4 +320,46 @@ function resetEditErrors()
     {
         edit_error_containers[i].innerHTML = "";
     }
+}
+
+
+//function to fill the edit form with the info of selected employee record
+function getEmployeeInfo(id)
+{
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.onload = function(){
+        const myObj = JSON.parse(this.responseText);
+
+        document.getElementById("edit-fname").value = myObj.fname;
+        document.getElementById("edit-mname").value = myObj.mname;
+        document.getElementById("edit-lname").value = myObj.lname;
+        document.getElementById("edit-fname").value = myObj.fname;
+        document.getElementById("edit-address").value = myObj.address;
+        
+        var edit_optradio = document.getElementsByClassName("edit-optradio");
+        
+        for(var i = 0; i < edit_optradio.length; i++)
+        {
+            if(myObj.sex == edit_optradio[i].value.toUpperCase()){
+                edit_optradio[i].checked = true;
+            }
+        }
+
+        document.getElementById("edit-dob").value = myObj.dob;
+        document.getElementById("edit-pob").value = myObj.pob;
+        document.getElementById("edit-telephone").value = myObj.telephone;
+        document.getElementById("edit-email").value = myObj.email;
+        document.getElementById("edit-civil-status").value = myObj.civil_status.charAt(0) + myObj.civil_status.slice(1).toLowerCase();
+        document.getElementById("edit-designation").value = myObj.designation;
+        document.getElementById("edit-telephone").value = myObj.telephone;
+        document.getElementById("edit-branch").value = myObj.branch;
+        document.getElementById("edit-office").value = myObj.office;
+        document.getElementById("edit-telephone").value = myObj.telephone;
+        document.getElementById("edit-college").value = myObj.college;
+        document.getElementById("edit-telephone").value = myObj.telephone;
+        document.getElementById("edit-workstatus").value = myObj.work_status.charAt(0) + myObj.work_status.slice(1).toLowerCase();
+        document.getElementById("edit-hireddate").value = myObj.hired_date;
+    }
+    xmlhttp.open("GET", "./src/php/pages/employee/getemployeeinfo.php?id=" + id, true);
+    xmlhttp.send();
 }

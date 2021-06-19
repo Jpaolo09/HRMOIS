@@ -23,7 +23,7 @@
                     <td>".htmlspecialchars($row['DEDUCTION'])."</td>
                     <td>".htmlspecialchars($row['NET_PAY'])."</td>
                     <td>
-                        <button type='button' class='btn' data-toggle='modal' data-target='#employee1-payslip-edit'>Edit</button>
+                        <button type='button' class='btn' data-toggle='modal' data-target='#employee1-payslip-edit' onclick='getPayrollInfo(".$row['EMP_ID'].")'>Edit</button>
                         <button type='button' class='btn' data-toggle='modal' data-target='#employee1-payslip-print'>Print Payslip</button>
                     </td>
                 </tr>";

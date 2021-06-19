@@ -179,7 +179,7 @@ function getCareerInfo(id)
 
         for(var i = 0; i < myObj.requirements.length; i++){
             const requirement = document.createElement('li');
-            requirement.innerHTML = myObj.requirements[i];
+            requirement.innerHTML = myObj.requirements[i].replace("in the last rating period", "<b>" + "in the last rating period" + "</b>" );
             requirementsList.appendChild(requirement);
         }
     }
