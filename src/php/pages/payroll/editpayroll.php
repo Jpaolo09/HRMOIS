@@ -12,14 +12,14 @@
     $date = validateDate($_POST['date']);
     $working_hours = validateInt($_POST['working-hours']);
     $basic_pay = validateInt($_POST['basic']);
-    $gross_pay = validateInt($_POST['grosspay']);
+    $gross_pay = $working_hours * $basic_pay;
     $cash_advance = validateInt($_POST['advance']);
     $sss = validateInt($_POST['sss']);
     $philhealth = validateInt($_POST['philhealth']);
     $pagibig = validateInt($_POST['pagibig']);
     $others = validateInt($_POST['others']);
-    $deductions = validateInt($_POST['deductions']);
-    $net_pay = validateInt($_POST['netpay']);
+    $deductions = $sss + $philhealth + $pagibig + $cash_advance + $others;
+    $net_pay = $gross_pay - $deductions;
 
     /*echo $date."<br>";
     echo $working_hours."<br>";

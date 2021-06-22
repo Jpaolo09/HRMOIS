@@ -26,6 +26,8 @@
     $college = getCollegeID(sanitizeString($_POST['edit-college']));
     $work_status = sanitizeString($_POST['edit-workstatus']);
     $hired_date = validateDate($_POST['edit-hireddate']);
+    //if the password is not blank hash it, set null value
+    $password = (!$_POST['edit-pass'] == "") ? password_hash($_POST['edit-pass'], PASSWORD_DEFAULT) : null;
 
     /*echo $firstname."<br>";
     echo $middle_name."<br>";
@@ -47,8 +49,23 @@
     $stmt = $conn->prepare("UPDATE employees SET FNAME=?, MNAME=?, LNAME=?, OFFICE_ID=?, ADDRESS=?, SEX=?, DOB=?, PLACE_OF_BIRTH=?, TEL_NO=?, EMAIL=?, CIVIL_STATUS=?, DESIGNATION=?, COLLEGE_ID=?, CAMPUS_ID=?, WORK_STATUS=?, HIRED_DATE=? WHERE EMP_ID = ?");
     $stmt->bind_param("sssissssssssiissi", $firstname, $middle_name, $lastname, $office, $address, $sex, $dob, $pob, $telephone, $email, $civil_status, $designation, $college, $branch, $work_status, $hired_date, $id);
     $stmt->execute();
-    $last_id = $stmt->insert_id;
     $stmt->close();
+
+    //if password is not blank update password else retain the password
+    if($password != null)
+    {
+        $stmt = $conn->prepare("UPDATE users SET USERNAME=?, PASSWORD=? WHERE EMP_ID=?");
+        $stmt->bind_param("ssi", $email, $password, $id);
+        $stmt->execute();
+        $stmt->close();
+    }
+    else
+    {
+        $stmt = $conn->prepare("UPDATE users SET USERNAME=? WHERE EMP_ID=?");
+        $stmt->bind_param("si", $email, $id);
+        $stmt->execute();
+        $stmt->close();
+    }
 
     //redirect to employees page again
     header('location: ../../../../employee');

@@ -334,6 +334,20 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="p-2">
+                                    <div class="row d-flex align-items-center">
+                                        <div class="col-4 px-5 d-flex justify-content-end">
+                                            <label for="name">Password:</label>
+                                        </div>
+                                        <div class="col">
+                                            <input type="password" class="form-control border-secondary" id="edit-pass" name="edit-pass" placeholder="note: leaving this empty will retain the old password">
+                                            <div class="error-message">
+                                                <small id="edit-pass-error-message" class="error-container" style="color:red;"></small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
         
                                 <div class="add-emp-buttons text-center w-100 pt-5">
                                     <div class="modal-footer d-flex justify-content-around">
@@ -598,6 +612,20 @@
                                             <input type="date" class="form-control border-secondary" id="create-hireddate" name="create-hireddate">
                                             <div class="error-message">
                                                 <small id="create-hireddate-error-message" class="error-container" style="color:red;"></small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="p-2" id="create-pass-div">
+                                    <div class="row d-flex align-items-center">
+                                        <div class="col-4 px-5 d-flex justify-content-end">
+                                            <label for="name">Password:</label>
+                                        </div>
+                                        <div class="col">
+                                            <input type="password" class="form-control border-secondary" id="create-pass" name="create-pass">
+                                            <div class="error-message">
+                                                <small id="create-pass-error-message" class="error-container" style="color:red;"></small>
                                             </div>
                                         </div>
                                     </div>

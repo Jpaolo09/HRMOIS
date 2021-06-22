@@ -9,29 +9,32 @@
         //function for user authentication(logging in)
         static function AuthenticateUser($username = "", $password = ""){
             global $conn;
-            $sql = "SELECT * FROM users WHERE USERNAME = '$username' AND PASSWORD = '$password' LIMIT 1";
+            $sql = "SELECT * FROM users WHERE USERNAME = '$username' LIMIT 1";
             $result = $conn->query($sql);
             
             if($result->num_rows > 0)
             {
                 $row = $result->fetch_assoc();
-                $_SESSION["EMPID"] = intval($row["EMP_ID"]);
-                $_SESSION["USERNAME"] = $row["USERNAME"];
+                if(password_verify($password, $row['PASSWORD']))
+                {
+                    $_SESSION["EMPID"] = intval($row["EMP_ID"]);
+                    $_SESSION["USERNAME"] = $row["USERNAME"];
 
-                $sql = "SELECT * FROM employees WHERE EMP_ID = '$_SESSION[EMPID]'";
-                $result = $conn->query($sql);
-                $row = $result->fetch_assoc();
+                    $sql = "SELECT * FROM employees WHERE EMP_ID = '$_SESSION[EMPID]'";
+                    $result = $conn->query($sql);
+                    $row = $result->fetch_assoc();
 
-                $_SESSION["FNAME"] = $row["FNAME"];
-                $_SESSION["MNAME"] = $row["MNAME"];
-                $_SESSION["LNAME"] = $row["LNAME"];
-                $_SESSION["DESIGNATION"] = $row["DESIGNATION"];
+                    $_SESSION["FNAME"] = $row["FNAME"];
+                    $_SESSION["MNAME"] = $row["MNAME"];
+                    $_SESSION["LNAME"] = $row["LNAME"];
+                    $_SESSION["DESIGNATION"] = $row["DESIGNATION"];
 
-                return true;
-            }
-            else
-            {
-                return false;
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
 

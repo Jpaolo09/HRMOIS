@@ -4,14 +4,14 @@
     //define intials values
     $working_hours = 0;
     $basic_pay = 250;
-    $gross_pay = 10000;
     $cash_advance = 0;
     $sss = 130;
     $philhealth = 160;
     $pagibig = 150;
     $others = 0;
-    $deductions = 0;
-    $net_pay = 8000;
+    $deductions = $sss + $philhealth + $pagibig + $cash_advance + $others;
+    $gross_pay = $working_hours * $basic_pay;
+    $net_pay = $gross_pay - $deductions;
     $curr_date = date("Y-m-d");
 
     function createPayroll($id){

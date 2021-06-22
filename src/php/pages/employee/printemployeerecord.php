@@ -53,6 +53,7 @@
     $pdf->AliasNbPages();
     $pdf->AddPage();
     $pdf->SetFont('Arial','B',12);
+    $pdf->SetDrawColor(126, 47,49);
     $pdf->Line(20, 40, 210-20, 40);
     $pdf->Image('../../../../images/blank_profile.png', 20, 50, 60);
     $pdf->Cell(90, 70, '', 0, 0, 'C');

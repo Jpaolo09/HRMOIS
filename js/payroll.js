@@ -63,14 +63,12 @@ function getPayrollInfo(id)
         document.getElementById("date").value = myObj.date;
         document.getElementById("working-hours").value = myObj.working_hours;
         document.getElementById("basic").value = myObj.basic_pay;
-        document.getElementById("grosspay").value = myObj.gross_pay;
         document.getElementById("advance").value = myObj.cash_advance;
         document.getElementById("sss").value = myObj.sss;
+        console.log(myObj.sss);
         document.getElementById("philhealth").value = myObj.philhealth;
         document.getElementById("pagibig").value = myObj.pagibig;
         document.getElementById("others").value = myObj.others;
-        document.getElementById("deductions").value = myObj.deduction;
-        document.getElementById("netpay").value = myObj.net_pay;
     }
     xmlhttp.open("GET", "./src/php/pages/payroll/getpayrollinfo.php?id=" + id, true);
     xmlhttp.send();

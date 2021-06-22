@@ -51,7 +51,7 @@
     $year = $date_bits[0];
     $myObj->deadline = $month.' '.$day.', '.$year;
 
-    //user regular expression matching to separate requirements by number, if the requirements are not numbered return the whole string
+    //use regular expression matching to separate requirements by number, if the requirements are not numbered return the whole string
     $requirements_bits;
     if(preg_match('/[0-9]+\./', $result_assoc['REQ']))
     {
@@ -68,6 +68,6 @@
     //encode the object into a JSON file
     $myJSON = json_encode($myObj);
 
-    //return the JSON file containing the information of the career to the javascript
+    //return the JSON file containing the information of the requirements to the javascript
     echo $myJSON;
 ?>

@@ -14,6 +14,7 @@ const new_branch = document.getElementById("create-branch");
 const new_office = document.getElementById("create-office");
 const new_college = document.getElementById("create-college");
 const new_hired_date = document.getElementById("create-hireddate");
+const new_password = document.getElementById("create-pass");
 
 //get all of the edit employee form input fields
 const edit_fname = document.getElementById("edit-fname");
@@ -29,11 +30,13 @@ const edit_branch = document.getElementById("edit-branch");
 const edit_office = document.getElementById("edit-office");
 const edit_college = document.getElementById("edit-college");
 const edit_hired_date = document.getElementById("edit-hireddate");
+const edit_password = document.getElementById("edit-pass");
 
 var error_containers = document.getElementsByClassName("error-container");
 var edit_error_containers = document.getElementsByClassName("edit-error-container");
 var letters = /^[A-Za-z .]+$/;
 var re_email = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+var re_pass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
 
 //function to validate the form for adding employee
 function validateCreateForm()
@@ -151,6 +154,18 @@ function validateCreateForm()
     if(new_hired_date.value == "")
     {
         setErrorFor("create-hireddate", "Please select a date");
+        error_count++;
+    }
+
+    //validate password
+    if(new_password.value == "")
+    {
+        setErrorFor("create-pass", "Password cannot be blank");
+        error_count++;
+    }
+    else if(!new_password.value.match(re_pass))
+    {
+        setErrorFor("create-pass", "Password must be at least 6 characters and contain at least one numeric digit, one uppercase and one lowercase letter");
         error_count++;
     }
 
@@ -283,6 +298,17 @@ function validateEditForm()
         setErrorFor("edit-hireddate", "Please select a date");
         error_count++;
     }
+
+    //validate password
+    if(!edit_password.value == "")
+    {
+        if(!edit_password.value.match(re_pass))
+        {
+            setErrorFor("edit-pass", "Password must be at least 6 characters and contain at least one numeric digit, one uppercase and one lowercase letter");
+            error_count++;
+        }
+    }
+
 
     if(error_count < 1)
     {

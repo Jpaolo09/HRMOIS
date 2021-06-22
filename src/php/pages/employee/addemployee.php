@@ -23,6 +23,7 @@
     $college = getCollegeID(sanitizeString($_POST['create-college']));
     $work_status = sanitizeString($_POST['create-workstatus']);
     $hired_date = validateDate($_POST['create-hireddate']);
+    $password = password_hash($_POST['create-pass'], PASSWORD_DEFAULT);
 
     /*echo $firstname."<br>";
     echo $middle_name."<br>";
@@ -40,7 +41,7 @@
     echo $work_status."<br>";
     echo $hired_date."<br>";*/
 
-    //save the employee record to the database
+    //save the employee record to the employee table
     $stmt = $conn->prepare("INSERT INTO employees (FNAME, MNAME, LNAME, OFFICE_ID, ADDRESS, SEX, DOB, PLACE_OF_BIRTH, TEL_NO, EMAIL, CIVIL_STATUS, DESIGNATION, COLLEGE_ID, CAMPUS_ID, WORK_STATUS, HIRED_DATE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("sssissssssssiiss", $firstname, $middle_name, $lastname, $office, $address, $sex, $dob, $pob, $telephone, $email, $civil_status, $designation, $college, $branch, $work_status, $hired_date);
     $stmt->execute();
@@ -50,7 +51,14 @@
     //create payroll record for the newly created employee
     createPayroll($last_id);
 
+    //add the user account to the user table
+    $stmt = $conn->prepare("INSERT INTO users (USERNAME, PASSWORD, EMP_ID) VALUES (?, ?, ?)");
+    $stmt->bind_param("ssi", $email, $password, $last_id);
+    $stmt->execute();
+    $stmt->close();
+
     //redirect to employees page again
     header('location: ../../../../employee');
     die();
+        
 ?>

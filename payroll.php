@@ -145,20 +145,6 @@
                                 <div class="p-2">
                                     <div class="row d-flex align-items-center">
                                         <div class="col-4 px-5 d-flex justify-content-end">
-                                            <label for="grosspay">Gross Pay:</label>
-                                        </div>
-                                        <div class="col">
-                                            <input type="text" class="form-control border-secondary numeric-input" id="grosspay" name="grosspay" value="0">
-                                            <div class="error-message">
-                                                <small id="error-3" class="error-container" style="color:red;"></small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="p-2">
-                                    <div class="row d-flex align-items-center">
-                                        <div class="col-4 px-5 d-flex justify-content-end">
                                             <label for="advance">Cash Advance:</label>
                                         </div>
                                         <div class="col">
@@ -196,7 +182,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div
                                 
                                 <div class="p-2">
                                     <div class="row d-flex align-items-center">
@@ -221,34 +207,6 @@
                                             <input type="text" class="form-control border-secondary numeric-input" id="others" name="others" value="0">
                                             <div class="error-message">
                                                 <small id="error-8" class="error-container" style="color:red;"></small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="p-2">
-                                    <div class="row d-flex align-items-center">
-                                        <div class="col-4 px-5 d-flex justify-content-end">
-                                            <label for="deductions">Deductions:</label>
-                                        </div>
-                                        <div class="col">
-                                            <input type="text" class="form-control border-secondary numeric-input" id="deductions" name="deductions" value="0">
-                                            <div class="error-message">
-                                                <small id="error-9" class="error-container" style="color:red;"></small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="p-2">
-                                    <div class="row d-flex align-items-center">
-                                        <div class="col-4 px-5 d-flex justify-content-end">
-                                            <label for="netpay">Netpay:</label>
-                                        </div>
-                                        <div class="col">
-                                            <input type="text" class="form-control border-secondary numeric-input" id="netpay" name="netpay" value="0">
-                                            <div class="error-message">
-                                                <small id="error-10" class="error-container" style="color:red;"></small>
                                             </div>
                                         </div>
                                     </div>
