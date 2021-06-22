@@ -313,7 +313,7 @@
                                         <div class="col">
                                             <select class="form-control border-secondary" id="edit-workstatus" name="edit-workstatus">
                                                 <option>Regular</option>
-                                                <option>Part-Time</option>
+                                                <option>Part-time</option>
                                                 <option>Suspended</option>
                                                 <option>Resigned or fired</option>
                                             </select>
@@ -595,7 +595,7 @@
                                         <div class="col">
                                             <select class="form-control border-secondary" id="create-workstatus" name="create-workstatus">
                                                 <option>Regular</option>
-                                                <option>Part-Time</option>
+                                                <option>Part-time</option>
                                                 <option>Suspended</option>
                                                 <option>Resigned or fired</option>
                                             </select>
