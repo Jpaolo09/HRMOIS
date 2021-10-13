@@ -162,6 +162,7 @@ function getCareerInfo(id)
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.onload = function(){
         const myObj = JSON.parse(this.responseText);
+        document.getElementById("career1-title").innerHTML = myObj.position;
         document.getElementById("position-name").innerHTML = myObj.position;
         document.getElementById("position-office").innerHTML = myObj.office;
         document.getElementById("position-campus").innerHTML = myObj.campus;

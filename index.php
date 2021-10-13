@@ -1,3 +1,17 @@
+<!--
+    SECTION: BSIT-3A
+
+    DEVELOPERS:
+        Product Manager/Frontend Developer:
+            Jefferson Salvador
+        Backend Developer:
+            Jan Paolo Cortez
+        Database Administrator:
+            Ancess Condeza
+        Quality Assurance:
+            Vince Salvador
+-->
+
 <?php
     require_once('src/php/include/initialize.php');
 ?>
@@ -8,6 +22,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Look for career opportunities at Technological University of the Philippines.">
     <title>TUP HRMOIS | Career Opportunities</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
@@ -71,7 +86,7 @@
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="career1-title">Administrative Aide VI - Clerk III</h5>
+                    <h5 class="modal-title" id="career1-title">None</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

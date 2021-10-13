@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 19, 2021 at 11:38 AM
+-- Generation Time: Oct 13, 2021 at 01:22 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -40,25 +40,12 @@ CREATE TABLE `attendance` (
 --
 
 INSERT INTO `attendance` (`ATTENDANCE_ID`, `EMP_ID`, `TIME_IN`, `TIME_OUT`, `DATE`) VALUES
-(6, 2, '20:54:19', '11:50:01', '2021-07-10'),
-(7, 2, '20:57:33', '00:00:00', '2021-06-12'),
-(8, 2, '21:28:39', '00:00:00', '2021-06-23'),
-(9, 2, '21:32:14', '00:00:00', '2021-06-15'),
-(10, 2, '21:35:42', '00:00:00', '2021-05-30'),
-(11, 2, '11:43:10', '12:40:55', '2021-06-16'),
-(12, 2, '11:56:22', '00:00:00', '2021-07-07'),
-(13, 2, '12:20:06', '00:00:00', '2021-06-22'),
-(14, 2, '12:20:14', '00:00:00', '2021-06-28'),
-(15, 1, '12:39:22', '12:40:12', '2021-06-16'),
-(16, 1, '12:58:17', '12:58:38', '2021-06-28'),
-(17, 1, '17:26:29', '00:00:00', '2021-06-30'),
-(18, 2, '21:19:46', '21:20:12', '2021-06-17'),
-(19, 2, '22:07:42', '22:09:12', '2021-06-18'),
-(20, 2, '22:12:43', '00:00:00', '2021-06-30'),
-(21, 2, '15:12:01', '00:00:00', '2021-06-19'),
-(22, 2, '15:12:07', '15:12:46', '2021-06-20'),
-(23, 1, '15:14:00', '00:00:00', '2021-06-04'),
-(24, 2, '15:17:32', '00:00:00', '2022-02-16');
+(30, 44, '22:02:19', '22:03:10', '2021-06-22'),
+(31, 44, '22:29:47', '00:00:00', '2021-06-23'),
+(32, 44, '22:30:09', '22:30:50', '2021-06-26'),
+(33, 44, '22:31:17', '00:00:00', '2021-12-24'),
+(34, 45, '11:05:02', '11:05:11', '2021-07-10'),
+(35, 45, '11:05:16', '00:00:00', '2021-06-30');
 
 -- --------------------------------------------------------
 
@@ -126,18 +113,22 @@ CREATE TABLE `employees` (
   `COLLEGE_ID` int(11) NOT NULL,
   `CAMPUS_ID` int(11) NOT NULL,
   `WORK_STATUS` enum('REGULAR','PART-TIME','SUSPENDED','RESIGNED OR FIRED') NOT NULL,
-  `HIRED_DATE` date NOT NULL
+  `HIRED_DATE` date NOT NULL,
+  `QR` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `employees`
 --
 
-INSERT INTO `employees` (`EMP_ID`, `FNAME`, `MNAME`, `LNAME`, `OFFICE_ID`, `ADDRESS`, `SEX`, `DOB`, `PLACE_OF_BIRTH`, `TEL_NO`, `EMAIL`, `CIVIL_STATUS`, `DESIGNATION`, `COLLEGE_ID`, `CAMPUS_ID`, `WORK_STATUS`, `HIRED_DATE`) VALUES
-(1, 'Jesus Rodrigo', 'F.', 'Torres', 2, 'Ayala Blvd, Ermita, Manila, 1000 Metro Manila', 'MALE', '1973-09-16', 'Manila', '(+63) 9054687742', 'jesus@tup.edu.ph', 'MARRIED', 'President', 1, 1, 'REGULAR', '2019-06-11'),
-(2, 'Lorna', 'S.', 'Santos', 14, 'Manila', 'FEMALE', '1980-05-11', 'Cavite', '(+63) 9751447832', 'lorna@tup.edu.ph', 'SINGLE', 'Human Resource', 1, 1, 'REGULAR', '2021-05-11'),
-(35, 'Juan', 'Dela', 'Cruz', 5, 'Manila', 'MALE', '2021-06-19', 'Manila', '09876351736', 'juan@tup.edu.ph', 'MARRIED', 'Human Resource', 1, 1, 'REGULAR', '2021-06-19'),
-(36, 'Jefferson', 'B.', 'Salvador', 9, 'Cavite', 'MALE', '2021-06-19', 'Cavite', '09876351736', 'jep@gmail.com', 'SINGLE', 'Human Resource', 3, 1, 'REGULAR', '2021-06-19');
+INSERT INTO `employees` (`EMP_ID`, `FNAME`, `MNAME`, `LNAME`, `OFFICE_ID`, `ADDRESS`, `SEX`, `DOB`, `PLACE_OF_BIRTH`, `TEL_NO`, `EMAIL`, `CIVIL_STATUS`, `DESIGNATION`, `COLLEGE_ID`, `CAMPUS_ID`, `WORK_STATUS`, `HIRED_DATE`, `QR`) VALUES
+(37, 'Juan', 'Dela', 'Cruz', 18, 'Manila', 'MALE', '2021-06-06', 'Manila', '09876351736', 'juan@tup.edu.ph', 'MARRIED', 'Human Resource', 1, 1, 'REGULAR', '2021-06-21', 'NULL'),
+(42, 'Jan Paolo', 'S.', 'Cortez', 17, 'Bulacan', 'MALE', '1999-11-15', 'Manila', '09082282637', 'jpaolocortez09@gmail.com', 'SINGLE', 'Human Resource', 6, 1, 'PART-TIME', '2021-06-21', 'NULL'),
+(43, 'Marites', 'D.', 'Maliwanag', 7, 'Manila', 'FEMALE', '2021-06-21', 'Manila', '09876351736', 'marites@tup.edu.ph', 'DIVORCED', 'Faculty Member', 5, 1, 'PART-TIME', '2021-06-22', 'NULL'),
+(44, 'Jesus Rodrigo', 'F.', 'Torres', 5, 'Manila', 'MALE', '1986-07-31', 'Manila', '09082282637', 'rodrigo@employee.com', 'MARRIED', 'University President', 6, 1, 'REGULAR', '2021-06-22', 'NULL'),
+(45, 'Lorna', 'S.', 'Santos', 8, 'Manila', 'FEMALE', '1992-06-28', 'Manila', '09876351736', 'lorna@hr.com', 'MARRIED', 'Human Resource', 2, 1, 'REGULAR', '2021-06-22', 'NULL'),
+(47, 'Johnny', 'Sy', 'Smith', 16, 'Manila', 'MALE', '1993-05-26', 'London', '09123456789', 'john.smith@gmail.com', 'SINGLE', 'Janitor', 6, 1, 'PART-TIME', '2021-01-25', 'NULL'),
+(50, 'cascxsa', 'Dela', 'Cortez', 4, 'asdsadas', 'MALE', '2021-06-08', 'Manila', '09876351736', 'juan@tup.edu.ph', 'SINGLE', 'Human Resource', 2, 1, 'REGULAR', '2021-06-23', '50.png');
 
 -- --------------------------------------------------------
 
@@ -201,8 +192,13 @@ CREATE TABLE `payroll` (
 --
 
 INSERT INTO `payroll` (`PR_ID`, `EMP_ID`, `DATE`, `WORKING_HOURS`, `BASIC_PAY`, `GROSS_PAY`, `CASH_ADVANCE`, `SSS`, `PHILHEALTH`, `PAGIBIG`, `OTHERS`, `DEDUCTION`, `NET_PAY`) VALUES
-(14, 35, '2021-06-19', 0, 250, 10000, 0, 130, 160, 150, 0, 0, 8000),
-(15, 36, '2021-06-19', 0, 250, 10000, 0, 130, 160, 150, 0, 0, 8000);
+(16, 37, '2021-06-21', 800, 250, 200000, 0, 130, 160, 150, 0, 440, 199560),
+(21, 42, '2021-06-22', 133, 232, 30856, 132, 523, 234, 134, 0, 1023, 29833),
+(22, 43, '2021-06-22', 0, 250, 0, 0, 130, 160, 150, 0, 440, -440),
+(23, 44, '2021-06-22', 0, 250, 0, 0, 130, 160, 150, 0, 440, -440),
+(24, 45, '2021-06-22', 0, 250, 0, 0, 130, 160, 150, 0, 440, -440),
+(26, 47, '2021-06-22', 0, 250, 0, 0, 130, 160, 150, 0, 440, -440),
+(29, 50, '2021-06-23', 0, 250, 0, 0, 130, 160, 150, 0, 440, -440);
 
 -- --------------------------------------------------------
 
@@ -233,7 +229,9 @@ CREATE TABLE `position` (
 INSERT INTO `position` (`POS_ID`, `POSITION`, `OFFICE_ID`, `CAMPUS_ID`, `NUM_OF_VACANCIES`, `SALARY_GRADE`, `ITEM_NUM`, `QUALIFICATION`, `EXPERIENCE`, `TRAINING`, `ELIGIBILITY`, `DEADLINE`, `REQ`) VALUES
 (1, 'Administrative Aide VI - Clerk III', 15, 1, 1, 6, 'TUPB-0000-00-0000', 'Completion of two years in college.', 'None Required', 'None Required', 'Career Service Subprofessional', '2021-05-22', '1. Fully accomplished Personal Data Sheet (PDS) with recent passport-sized picture (CS Form No. 212, Revised 2017) which can be downloaded at www.csc.gov.ph; 2. Performance rating in the last rating period (if applicable); 3. Photocopy of certificate of eligibility/rating/license; and 4. Photocopy of Transcript of Records.'),
 (3, '	Administrative Officer V - Cashier III', 17, 1, 1, 18, 'TUPB-ADOF5-9-2004', 'Bachelor&#39;s degree', 'Two (2) years of relevant experience', 'Eight (8) hours of relevant training', 'Career Service Professional', '2021-07-10', '1. Fully accomplished Personal Data Sheet (PDS) with recent passport-sized picture (CS Form No. 212, Revised 2017) which can be downloaded at www.csc.gov.ph;\r\n2. Performance rating in the last rating period (if applicable);\r\n3. Photocopy of certificate of eligibility/rating/license; and\r\n4. Photocopy of Transcript of Records.'),
-(4, 'Science Research Assistant', 11, 1, 1, 18, 'TUPB-ADOF5-9-2004', 'Bachelor&#39;s degree', 'Two (2) years of relevant experience', 'Eight (8) hours of relevant training', 'Career Service Professional', '2021-08-20', '1. Fully accomplished Personal Data Sheet (PDS) with recent passport-sized picture (CS Form No. 212, Revised 2017) which can be downloaded at www.csc.gov.ph;\r\n2. Performance rating in the last rating period (if applicable);\r\n3. Photocopy of certificate of eligibility/rating/license; and\r\n4. Photocopy of Transcript of Records.');
+(4, 'Science Research Assistant', 11, 1, 1, 18, 'TUPB-ADOF5-9-2004', 'Bachelor&#39;s degree', 'Two (2) years of relevant experience', 'Eight (8) hours of relevant training', 'Career Service Professional', '2021-08-20', '1. Fully accomplished Personal Data Sheet (PDS) with recent passport-sized picture (CS Form No. 212, Revised 2017) which can be downloaded at www.csc.gov.ph;\r\n2. Performance rating in the last rating period (if applicable);\r\n3. Photocopy of certificate of eligibility/rating/license; and\r\n4. Photocopy of Transcript of Records.'),
+(5, 'Administrative Aide IV - Electrician I', 18, 1, 1, 4, 'TUPB-ADA4-69-2004', 'High School Graduate or Completion of relevant vocational/trade course', 'None Required', 'None Required', 'Electrician (Building Wiring)', '2021-07-10', '1. Fully accomplished Personal Data Sheet (PDS) with recent passport-sized picture (CS Form No. 212, Revised 2017) which can be downloaded at www.csc.gov.ph;\r\n2. Performance rating in the last rating period (if applicable);\r\n3. Photocopy of certificate of eligibility/rating/license; and\r\n4. Photocopy of Transcript of Records.'),
+(7, 'Administrative Assistant II - HRM Assistant II', 8, 1, 1, 8, 'TUPB-ADAS2-44-2004', 'Completion of two years studies in college', ' One (1) year of relevant experience', 'Four (4) hours of relevant training', 'Career Service Subprofessional', '2021-06-30', '1. Fully accomplished Personal Data Sheet (PDS) with recent passport-sized picture (CS Form No. 212, Revised 2017) which can be downloaded at www.csc.gov.ph;\r\n2. Performance rating in the last rating period (if applicable);\r\n3. Photocopy of certificate of eligibility/rating/license; and\r\n4. Photocopy of Transcript of Records.');
 
 -- --------------------------------------------------------
 
@@ -253,8 +251,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`USER_ID`, `USERNAME`, `PASSWORD`, `EMP_ID`) VALUES
-(1, 'lorna@hr', 'hr1234', 2),
-(2, 'rodrigo@employee', 'employee1234', 1);
+(6, 'jpaolocortez09@gmail.com', '$2y$10$cjphiGyR8xulZOVAPSWy5eEOMVjQmVuLARi5C4IOnDqTykveflvDG', 42),
+(7, 'marites@tup.edu.ph', '$2y$10$HJZAtr1K8xLPAlWWdLzQVexMT33tp8mD7iC1PtmNgZCDO5sTtykJG', 43),
+(8, 'rodrigo@employee.com', '$2y$10$/4XpB9xE7otsA903yWkIFerU7H1CcFwsCdPIDwsUZjUOyVNm8hXJS', 44),
+(9, 'lorna@hr.com', '$2y$10$Yl2qQEfzxZ92Ley5K6bneO1DnMIrNbk2wes4oToy/UVqfV4/NzFES', 45),
+(11, 'john.smith@gmail.com', '$2y$10$Cxm83SzMNyjpx5JZvOJYoud/zxmgCkbVousPUtZpx1GpxHwkaNsRu', 47),
+(14, 'juan@tup.edu.ph', '$2y$10$BCMxfzluLG6o74KyXFun9ul56Q4dmpW4S7X.YOmOw3U1xMuKhgR1G', 50);
 
 --
 -- Indexes for dumped tables
@@ -324,7 +326,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `ATTENDANCE_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `ATTENDANCE_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `campus`
@@ -342,7 +344,7 @@ ALTER TABLE `college`
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `EMP_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `EMP_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `offices`
@@ -354,19 +356,19 @@ ALTER TABLE `offices`
 -- AUTO_INCREMENT for table `payroll`
 --
 ALTER TABLE `payroll`
-  MODIFY `PR_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `PR_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `position`
 --
 ALTER TABLE `position`
-  MODIFY `POS_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `POS_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `USER_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `USER_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables
